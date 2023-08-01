@@ -1,0 +1,16 @@
+{
+  "name": "leafletjsexample",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "vitepress": "1.0.0-beta.7"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "vaebe",
+  "license": "MIT"
+}
