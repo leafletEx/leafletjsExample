@@ -6,7 +6,7 @@ import { sidebar } from './config/sidebar';
 // https://vitepress.dev/reference/site-config
 export default defineConfig(({ mode }) => {
   const basePath =
-    mode === 'development' ? '/' : '/leafletjs-example/';
+    mode === 'development' ? '/' : '/';
 
   return {
     base: basePath,
