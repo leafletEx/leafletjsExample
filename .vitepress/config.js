@@ -14,8 +14,11 @@ export default defineConfigWithTheme({
     sidebar,
     i18n,
     editLink: {
-      repo: 'https://github.com/vaebe/leafletjsExample/:path',
+      pattern: 'https://github.com/vaebe/leafletjsExample/blob/main/src/:path',
       text: '在 GitHub 上编辑此页'
+    },
+    lastUpdated: {
+      text: '最近更新时间'
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vaebe/leafletjsExample' }
