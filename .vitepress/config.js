@@ -1,45 +1,23 @@
 import { defineConfig } from 'vitepress';
+import { i18n } from './config/i18n';
+import { nav } from './config/nav';
+import { sidebar } from './config/sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig(({ mode }) => {
   const basePath =
-    mode === 'development' ? '/' : '/leafletjs-example.vercel.app/';
+    mode === 'development' ? '/' : '/leafletjs-example/';
 
   return {
     base: basePath,
-    lang: 'en-ZH',
+    lang: 'zh-CN',
     title: 'leafletjs-example',
     description: 'leafletjs 与 vue3 结合使用的一些示例',
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
-      nav: [
-        { text: '首页', link: '/' },
-        { text: '示例', activeMatch: `^/examples/`, link: '/examples/' },
-        { text: '贡献者', link: '/team' }
-      ],
-
-      sidebar: {
-        '/examples/': [
-          {
-            text: '快速开始',
-            items: [
-              {
-                text: '简介',
-                link: '/examples/'
-              }
-            ]
-          },
-          {
-            text: '基础示例',
-            items: [
-              {
-                text: '初始化地图',
-                link: '/examples/initMap/'
-              }
-            ]
-          }
-        ]
-      },
+      nav,
+      sidebar,
+      i18n,
       socialLinks: [
         { icon: 'github', link: 'https://github.com/vaebe/leafletjsExample' }
       ],
