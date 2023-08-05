@@ -1,5 +1,5 @@
 /dist
 /node_modules
-/public
+/src/public
 /README.md
 pnpm-lock.yaml
