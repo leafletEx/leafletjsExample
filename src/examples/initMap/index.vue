@@ -1,11 +1,34 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+import { useMap } from '../../composables/useMap';
 
+const mapObj = ref();
+
+const { initMap } = useMap();
+
+// 在 onMounted 中初始化地图
+onMounted(() => {
+  mapObj.value = initMap();
+});
+
+const removeMap = () => {
+  if (mapObj.value) {
+    mapObj.value.remove();
+  }
+};
+
+// 在组件卸载时删除地图
+onUnmounted(() => {
+  removeMap();
+});
 </script>
 
 <template>
-<div>测试文件引入</div>
+  <div id="map"></div>
 </template>
 
 <style scoped>
-
+#map {
+  height: 40vh;
+}
 </style>
