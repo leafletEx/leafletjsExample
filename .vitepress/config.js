@@ -1,18 +1,41 @@
-import { defineConfigWithTheme } from 'vitepress';
+import { defineConfig } from 'vitepress';
 import { i18n } from './config/i18n';
 import { nav } from './config/nav';
 import { sidebar } from './config/sidebar';
 
-export default defineConfigWithTheme({
+export default defineConfig({
   base: '/',
   lang: 'zh-CN',
   title: 'leafletjs-example',
   description: 'leafletjs 与 vue3 结合使用的一些示例',
   srcDir: 'src',
+  ignoreDeadLinks: true,
+  head: [
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    ['meta', { name: 'author', content: 'vaebe' }],
+    ['meta', { property: 'og:title', content: 'leafletjs-example' }],
+    [
+      'meta',
+      {
+        property: 'og:description',
+        content: 'leafletjs 与 vue3 结合使用的一些示例'
+      }
+    ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover'
+      }
+    ],
+  ],
   themeConfig: {
     nav,
     sidebar,
     i18n,
+    logo: '/logo.png',
+    outlineTitle: '快速前往',
     editLink: {
       pattern: 'https://github.com/vaebe/leafletjsExample/blob/main/src/:path',
       text: '在 GitHub 上编辑此页'
