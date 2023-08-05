@@ -6,6 +6,9 @@ hero:
   name: "leafletjs-example"
   text: ""
   tagline: leafletjs 与 vue3 结合使用的一些示例
+  image:
+    src: /logo.png
+    alt: logo
   actions:
     - theme: brand
       text: 开始
