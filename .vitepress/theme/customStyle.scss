@@ -1,0 +1,16 @@
+/**
+ * custom style
+ * -------------------------------------------------------------------------- */
+
+.c-button {
+  padding: 4px;
+  margin-right: 10px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #9499ff;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
