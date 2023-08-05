@@ -29,6 +29,22 @@ export default defineConfig({
         content: 'width=device-width, initial-scale=1.0, viewport-fit=cover'
       }
     ],
+    // 谷歌分析
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-C38FF8YHL3'
+      }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C38FF8YHL3');`
+    ]
   ],
   themeConfig: {
     nav,
