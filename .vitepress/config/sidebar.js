@@ -17,6 +17,19 @@ export const sidebar = {
           link: '/examples/initMap/'
         }
       ]
+    },
+    {
+      text: '图层',
+      items: [
+        {
+          text: '图层列表',
+          link: '/examples/layers/'
+        },
+        {
+          text: '加载高德地图',
+          link: '/examples/loadGaoDeMap/'
+        }
+      ]
     }
   ]
 };
