@@ -22,7 +22,7 @@ pnpm install leaflet-webgl-heatmap -D
 
 <<< ./index.vue
 
-<<< @/composables/useMap.js
+<<< @/components/InitMapTianditu.vue
 
 <<< ./useWebGLHeatMap.js
 :::
@@ -43,7 +43,7 @@ const heatmap = new L.webGLHeatmap(opts);
 // 3 表示数据强度
 const points = [32.020274, 118.803319, 3]
 
-// 强制更改元素的强度
+// 强制更改所有元素的强度
 heatmap.multiply(2) 
 ```
 
