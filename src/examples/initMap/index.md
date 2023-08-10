@@ -1,5 +1,5 @@
 <script setup>
-import demo from './index.vue'
+import demo from '../../components/InitMapTianditu.vue'
 </script>
 
 # 初始化地图
@@ -12,11 +12,5 @@ import demo from './index.vue'
 
 ## 代码实现
 
-::: code-group
-
-<<< ./index.vue
-
-<<< @/composables/useMap.js
-
-:::
+<<< @/components/InitMapTianditu.vue
 

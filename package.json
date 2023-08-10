@@ -10,6 +10,7 @@
     "gcoord": "^1.0.5",
     "leaflet": "^1.9.4",
     "leaflet-webgl-heatmap": "^0.2.7",
+    "uuid": "^9.0.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
