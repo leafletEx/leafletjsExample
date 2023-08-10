@@ -13,6 +13,13 @@ API，让开发者可以在网页上集成地图、标记点、图层、多边�
 
 [https://leafletjs.cn/index.html](https://leafletjs.cn/index.html)
 
+## 注意事项
+
++ 文件中 leaflet 相关依赖进行了注释，在项目使用中需要放开相关注释。
++ 注释的原因是 vitePress 打包是在 node 环境运行，没有 window 变量而 leaflet 将其挂载到了 window
+  上，在打包时会抛出 `window is not undefined` 错误。
++ leaflet 相关依赖在 `.vitepress/theme/index.js` 中进行了引入。
+
 ## 版本
 
 + vue 3.3.4
