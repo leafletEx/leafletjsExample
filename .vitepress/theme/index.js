@@ -14,6 +14,10 @@ export default {
   async enhanceApp({ app }) {
     if (typeof window !== 'undefined') {
       await import('leaflet');
+
+      // webgl 热力图
+      await import('leaflet-webgl-heatmap')
+      await import('leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap')
     }
   }
 };
