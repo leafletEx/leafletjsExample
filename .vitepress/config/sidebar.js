@@ -30,6 +30,15 @@ export const sidebar = {
           link: '/examples/loadGaoDeMap/'
         }
       ]
+    },
+    {
+      text: '可视化',
+      items: [
+        {
+          text: 'webGL 热力图',
+          link: '/examples/webGLHeatMap/'
+        }
+      ]
     }
   ]
 };

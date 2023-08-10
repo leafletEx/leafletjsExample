@@ -7,6 +7,9 @@ dependencies:
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
+  leaflet-webgl-heatmap:
+    specifier: ^0.2.7
+    version: 0.2.7
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -751,6 +754,10 @@ packages:
   /jsonc-parser@3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
+
+  /leaflet-webgl-heatmap@0.2.7:
+    resolution: {integrity: sha512-PFntI52n5YiCkdn3fnisyWS0HgAQYRImPhD9Vn8ZY0XhVSjjJzJhXgci9WbLLD5xr77CbQrfak3bQSxa7WS5mQ==}
+    dev: false
 
   /leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
