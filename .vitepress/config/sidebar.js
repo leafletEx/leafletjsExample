@@ -32,6 +32,10 @@ export const sidebar = {
         {
           text: '加载高德地图',
           link: '/examples/loadGaoDeMap/'
+        },
+        {
+          text: '点聚合',
+          link: '/examples/pointAggregation/'
         }
       ]
     },

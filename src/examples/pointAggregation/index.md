@@ -1,0 +1,34 @@
+<script setup>
+import demo from './index.vue'
+</script>
+
+# 点聚合
+
+使用 `Leaflet.markercluster` 插件实现，[仓库地址](https://github.com/Leaflet/Leaflet.markercluster)。
+
+## 示例
+
+<demo></demo>
+
+## 安装依赖
+
+```shell
+pnpm install leaflet.markercluster
+```
+
+## 在项目中引入
+
+```js
+import "leaflet.markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+```
+
+## 代码实现
+
+::: code-group
+
+<<< ./index.vue
+
+<<< @/components/InitMapTianditu.vue
+:::
