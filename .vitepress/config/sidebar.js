@@ -15,6 +15,10 @@ export const sidebar = {
         {
           text: '初始化地图',
           link: '/examples/initMap/'
+        },
+        {
+          text: 'Marker',
+          link: '/examples/marker/'
         }
       ]
     },
