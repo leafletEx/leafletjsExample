@@ -47,3 +47,9 @@ npm install leaflet
 // main.js
 import "leaflet/dist/leaflet.css";
 ```
+
+### 使用 ts
+
+```shell
+npm i @types/leaflet
+```
