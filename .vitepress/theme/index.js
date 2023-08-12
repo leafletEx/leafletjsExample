@@ -16,8 +16,11 @@ export default {
       await import('leaflet');
 
       // webgl 热力图
-      await import('leaflet-webgl-heatmap')
-      await import('leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap')
+      await import('leaflet-webgl-heatmap');
+      await import('leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap');
+
+      // 点聚合
+      await import('leaflet.markercluster');
     }
   }
 };
