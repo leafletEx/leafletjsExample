@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { ref, defineAsyncComponent, reactive } from 'vue';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMap.vue')
@@ -7,61 +7,67 @@ const InitMap = defineAsyncComponent(() =>
 
 const mapObj = ref();
 
-const layerObj = {
-  '01': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity_Mobile/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '高清中国基础地图'
-  },
-  '02': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunityENG/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '英文地图'
-  },
-  '03': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '彩色中文地图'
-  },
-  '04': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '灰色地图'
-  },
-  '05': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '蓝黑色地图'
-  },
-  '06': {
-    layer: L.tileLayer(
-      'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{z}/{y}/{x}',
-      {
-        attribution: '&copy; 北京捷泰天域信息技术有限公司'
-      }
-    ),
-    name: '暖色地图'
-  }
+// todo 这里的函数看起来多此一举，这样的做原因在于打包是node环境 L 依赖 window。
+const layerObj = reactive({});
+const setLayerObj = () => {
+  const layers = {
+    '01': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity_Mobile/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '高清中国基础地图'
+    },
+    '02': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunityENG/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '英文地图'
+    },
+    '03': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '彩色中文地图'
+    },
+    '04': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '灰色地图'
+    },
+    '05': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '蓝黑色地图'
+    },
+    '06': {
+      layer: L.tileLayer(
+        'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '&copy; 北京捷泰天域信息技术有限公司'
+        }
+      ),
+      name: '暖色地图'
+    }
+  };
+
+  Object.assign(layerObj, layers);
 };
 
 const curLayer = ref();
@@ -77,6 +83,7 @@ const setLayer = (type) => {
 
 const mapLoad = (map) => {
   mapObj.value = map;
+  setLayerObj();
   setLayer('01');
 };
 </script>
