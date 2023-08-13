@@ -32,6 +32,40 @@ const customDrawingStyle = () => {
   );
 };
 
+// 绘制完成事件
+const pmCreate = (event) => {
+  const layer = event.layer;
+  const shapeType = layer.pm.getShape(); // 获取绘制图形的类型
+
+  let coordinates = [];
+
+  // 根据绘制图形的类型获取坐标集合
+  switch (shapeType) {
+    case 'Polygon':
+      coordinates = layer.getLatLngs()[0];
+      break;
+    case 'Rectangle':
+      coordinates = layer.getLatLngs()[0];
+      break;
+    case 'Circle':
+      const center = layer.getLatLng();
+      const radius = layer.getRadius();
+      // 这里可以根据需要将圆形转换为多边形，以便获得更多点的坐标
+      // 例如：coordinates = convertCircleToPolygon(center, radius, numPoints);
+      break;
+    default:
+      break;
+  }
+
+  console.log('绘制图形点位', coordinates);
+};
+
+// 图形删除事件
+const pmRemove = (e) => {
+  // 关闭全局删除模式
+  mapObj.value.pm.disableGlobalRemovalMode();
+};
+
 const mapLoad = (map) => {
   mapObj.value = map;
 
@@ -40,6 +74,12 @@ const mapLoad = (map) => {
 
   addControls();
   customDrawingStyle();
+
+  // 监听绘制完成事件
+  mapObj.value.on('pm:create', pmCreate);
+
+  // 监听图形删除事件
+  mapObj.value?.on('pm:remove', pmRemove);
 };
 
 /**
@@ -55,12 +95,6 @@ const drawGraphics = () => {
     snapDistance: 20
   });
 };
-
-// 监听图形删除事件
-mapObj.value?.on('pm:remove', () => {
-  // 关闭全局删除模式
-  mapObj.value.pm.disableGlobalRemovalMode();
-});
 
 // 手动清除绘制图形
 const clearDrawGraphics = () => {
