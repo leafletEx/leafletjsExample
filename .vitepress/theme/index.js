@@ -11,7 +11,7 @@ export default {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     });
   },
-  async enhanceApp({ app }) {
+  async enhanceApp() {
     if (typeof window !== 'undefined') {
       await import('leaflet');
 
@@ -21,6 +21,9 @@ export default {
 
       // 点聚合
       await import('leaflet.markercluster');
+
+      // 图形的绘制与编辑
+      await import('@geoman-io/leaflet-geoman-free');
     }
   }
 };
