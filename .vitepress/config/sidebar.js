@@ -32,19 +32,19 @@ export const sidebar = {
         {
           text: '加载高德地图',
           link: '/examples/loadGaoDeMap/'
-        },
-        {
-          text: '点聚合',
-          link: '/examples/pointAggregation/'
         }
       ]
     },
     {
-      text: '可视化',
+      text: '插件',
       items: [
         {
           text: 'webGL 热力图',
           link: '/examples/webGLHeatMap/'
+        },
+        {
+          text: '点聚合',
+          link: '/examples/pointAggregation/'
         }
       ]
     }
