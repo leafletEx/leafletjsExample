@@ -57,7 +57,7 @@ L.layerGroup([L.tileLayer('http://webst0{s}.is.autonavi.com/appmaptile?style=6&x
 
 <geo-q-map></geo-q-map>
 
-<<< ./geoq.vue
+<<< ./Geoq.vue
 
 ## openstreetmap 底图
 
