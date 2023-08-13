@@ -45,6 +45,10 @@ export const sidebar = {
         {
           text: '点聚合',
           link: '/examples/pointAggregation/'
+        },
+        {
+          text: '图形绘制与编辑',
+          link: '/examples/graphicsDrawingAndEditing/'
         }
       ]
     }

@@ -7,6 +7,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@geoman-io/leaflet-geoman-free": "^2.14.2",
     "gcoord": "^1.0.5",
     "leaflet": "^1.9.4",
     "leaflet-webgl-heatmap": "^0.2.7",
