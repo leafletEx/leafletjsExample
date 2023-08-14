@@ -50,6 +50,7 @@ const pmCreate = (event) => {
     case 'Circle':
       const center = layer.getLatLng();
       const radius = layer.getRadius();
+      console.log('圆形', center, radius);
       // 这里可以根据需要将圆形转换为多边形，以便获得更多点的坐标
       // 例如：coordinates = convertCircleToPolygon(center, radius, numPoints);
       break;

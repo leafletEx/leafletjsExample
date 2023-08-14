@@ -15,7 +15,7 @@ import demo from './index.vue'
 ```shell
 # gcoord 是一个处理地理坐标系的JS库
 # 用来修正百度地图、高德地图及其它互联网地图坐标系不统一的问题。
-pnpm i gcoord -D
+pnpm i gcoord
 ```
 
 ## 代码实现

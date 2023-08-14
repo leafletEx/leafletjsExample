@@ -13,7 +13,7 @@ import demo from './index.vue'
 ## 安装依赖
 
 ```shell
-pnpm install leaflet-webgl-heatmap -D
+pnpm install leaflet-webgl-heatmap
 ```
 
 ## 代码实现

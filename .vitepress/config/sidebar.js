@@ -53,6 +53,10 @@ export const sidebar = {
         {
           text: '截图并导出',
           link: '/examples/exportPicture/'
+        },
+        {
+          text: '点是否在面内',
+          link: '/examples/isPointInsidePolygon/'
         }
       ]
     }
