@@ -49,6 +49,10 @@ export const sidebar = {
         {
           text: '图形绘制与编辑',
           link: '/examples/graphicsDrawingAndEditing/'
+        },
+        {
+          text: '截图并导出',
+          link: '/examples/exportPicture/'
         }
       ]
     }
