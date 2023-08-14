@@ -4,12 +4,18 @@ dependencies:
   '@geoman-io/leaflet-geoman-free':
     specifier: ^2.14.2
     version: 2.14.2(leaflet@1.9.4)
+  file-saver:
+    specifier: ^2.0.5
+    version: 2.0.5
   gcoord:
     specifier: ^1.0.5
     version: 1.0.5
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
+  leaflet-image:
+    specifier: ^0.4.0
+    version: 0.4.0
   leaflet-webgl-heatmap:
     specifier: ^0.2.7
     version: 0.2.7
@@ -817,6 +823,10 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
+  /d3-queue@2.0.3:
+    resolution: {integrity: sha512-ejbdHqZYEmk9ns/ljSbEcD6VRiuNwAkZMdFf6rsUb3vHROK5iMFd8xewDQnUVr6m/ba2BG63KmR/LySfsluxbg==}
+    dev: false
+
   /esbuild@0.18.17:
     resolution: {integrity: sha512-1GJtYnUxsJreHYA0Y+iQz2UEykonY66HNWOb0yXYZi9/kNrORUEHVg87eQsCtqh59PEJ5YVZJO98JHznMJSWjg==}
     engines: {node: '>=12'}
@@ -849,6 +859,10 @@ packages:
 
   /estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+
+  /file-saver@2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -924,6 +938,12 @@ packages:
   /jsonc-parser@3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
+
+  /leaflet-image@0.4.0:
+    resolution: {integrity: sha512-J/vLCHiYNXlcQ/SZbHhj/VF5k3thxTryWijoqMO9sB20KV7hlMNUZDgxcDzXnfjk4hcYcFfGbveVc1tyQ9FgYw==}
+    dependencies:
+      d3-queue: 2.0.3
+    dev: false
 
   /leaflet-webgl-heatmap@0.2.7:
     resolution: {integrity: sha512-PFntI52n5YiCkdn3fnisyWS0HgAQYRImPhD9Vn8ZY0XhVSjjJzJhXgci9WbLLD5xr77CbQrfak3bQSxa7WS5mQ==}
