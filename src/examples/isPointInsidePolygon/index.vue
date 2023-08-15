@@ -10,6 +10,9 @@ const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')
 );
 
+const mapObj = ref();
+
+// 创建多边形
 const polygonData = [
   {
     lat: 31.979921773775636,
@@ -29,50 +32,74 @@ const polygonData = [
   }
 ];
 
-const polygon = ref();
-const createPolygon = (map) => {
-  polygon.value = L.polygon(polygonData, { color: 'red' }).addTo(map);
+const polygonOverlay = ref();
+const createPolygon = () => {
+  polygonOverlay.value = L.polygon(polygonData, { color: 'red' }).addTo(
+    mapObj.value
+  );
 };
 
-const circle = ref();
-const circlePolygonCoords = ref([]);
-const createCircle = (map) => {
-  circlePolygonCoords.value = [];
+// 创建与圆形逼近的正多边形的顶点坐标数组
+const getCirclePolygonCoords = (point, radius) => {
+  let coords = [];
 
+  // 正多边形的边数，数值越大逼近越精确（使用多少个点围成一个圆）
+  const numVertices = 64;
+
+  for (let i = 0; i < numVertices; i++) {
+    const angle = (i / numVertices) * Math.PI * 2;
+    const x = point.lng + (radius / 100000) * Math.cos(angle);
+    const y = point.lat + (radius / 100000) * Math.sin(angle);
+    coords.push([x, y]);
+  }
+
+  // 关闭多边形，多边形头尾节点需一样。
+  coords.push(coords[0]);
+
+  return coords;
+};
+
+// 获取圆形多边形坐标
+const circlePolygonCoords = ref([]);
+const createCircle = () => {
   const point = {
     lat: 32.04959129198556,
     lng: 118.68255615234376
   };
+
   const radius = 3740;
 
-  circle.value = L.circle([point.lat, point.lng], {
+  L.circle([point.lat, point.lng], {
     radius
-  }).addTo(map);
+  }).addTo(mapObj.value);
 
-  // 创建圆形逼近的正多边形的顶点坐标数组
-  for (let i = 0; i < 64; i++) {
-    const angle = (i / 64) * Math.PI * 2;
-    const x = point.lng + (radius / 100000) * Math.cos(angle);
-    const y = point.lat + (radius / 100000) * Math.sin(angle);
-    circlePolygonCoords.value.push([x, y]);
-  }
-
-  // todo 关闭多边形，多边形头尾节点需一样。
-  circlePolygonCoords.value.push(circlePolygonCoords.value[0]);
+  circlePolygonCoords.value = getCirclePolygonCoords(point, radius);
 };
 
-const info = ref('');
+// 创建信息 marker
+const infoMarker = ref();
+const createMarker = (point, text) => {
+  if (infoMarker.value) {
+    mapObj.value.removeLayer(infoMarker.value);
+    infoMarker.value = null;
+  }
+
+  infoMarker.value = L.marker([point.lat, point.lng], {}).addTo(mapObj.value);
+
+  infoMarker.value.bindPopup(`<p>${text}<p>`).openPopup();
+};
+
+// 地图点击事件
 const handleClick = (e) => {
-  console.log(e);
   const point = e.latlng;
 
   const isPointInsidePolygon = booleanPointInPolygon(
     turfPoint([point.lng, point.lat]),
-    polygon.value.toGeoJSON()
+    polygonOverlay.value.toGeoJSON()
   );
 
   if (isPointInsidePolygon) {
-    info.value = '在多边形内';
+    createMarker(point, '在多边形内');
     return;
   }
 
@@ -82,23 +109,23 @@ const handleClick = (e) => {
   );
 
   if (isPointInsideCircle) {
-    info.value = '在圆内';
+    createMarker(point, '在圆内');
     return;
   }
 
-  info.value = '不再任何图形范围内';
+  createMarker(point, '不再任何图形内');
 };
 
 const mapLoad = (map) => {
-  createPolygon(map);
-  createCircle(map);
+  mapObj.value = map;
+  createPolygon();
+  createCircle();
   map.on('click', handleClick);
 };
 </script>
 
 <template>
   <init-map @map-load="mapLoad"></init-map>
-  <p>{{ info }}</p>
 </template>
 
 <style scoped></style>
