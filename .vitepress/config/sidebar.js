@@ -17,8 +17,12 @@ export const sidebar = {
           link: '/examples/initMap/'
         },
         {
-          text: 'Marker',
+          text: 'Marker 标记',
           link: '/examples/marker/'
+        },
+        {
+          text: 'Polygon 多边形',
+          link: '/examples/createPolygon/'
         }
       ]
     },
