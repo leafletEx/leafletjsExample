@@ -61,6 +61,10 @@ export const sidebar = {
         {
           text: '点是否在面内',
           link: '/examples/isPointInsidePolygon/'
+        },
+        {
+          text: '渐变折线',
+          link: '/examples/gradientPolyline/'
         }
       ]
     }
