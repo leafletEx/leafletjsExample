@@ -11,6 +11,5 @@
 
 # todo
 + https://github.com/antvis/L7-Leaflet antvL7
-+ https://iosphere.github.io/Leaflet.hotline/demo/  渐变折线
 + https://github.com/Leaflet/Leaflet.Editable 轻量的图形编辑插件
 + https://github.com/wandergis/leaflet-echarts  最新版本 v3 不可用
