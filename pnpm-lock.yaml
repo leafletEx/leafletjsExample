@@ -16,6 +16,9 @@ dependencies:
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
+  leaflet-hotline:
+    specifier: ^0.4.0
+    version: 0.4.0
   leaflet-image:
     specifier: ^0.4.0
     version: 0.4.0
@@ -1975,6 +1978,10 @@ packages:
   /jsonc-parser@3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
+
+  /leaflet-hotline@0.4.0:
+    resolution: {integrity: sha512-+In6c8WxMsRKMmwQ1m2GmbNxbXvA3WsrOilJGK7l4Sj+mUDh1gdyGMYCIoRBtUeX7lMvBc4KKeEVAlwQERKpxg==}
+    dev: false
 
   /leaflet-image@0.4.0:
     resolution: {integrity: sha512-J/vLCHiYNXlcQ/SZbHhj/VF5k3thxTryWijoqMO9sB20KV7hlMNUZDgxcDzXnfjk4hcYcFfGbveVc1tyQ9FgYw==}
