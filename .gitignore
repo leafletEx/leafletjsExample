@@ -26,3 +26,4 @@ pnpm-debug.log*
 .vitepress/cache/
 *examplesList.json
 *contributors.json
+*componentContributor.json

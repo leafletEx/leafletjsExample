@@ -1,7 +1,9 @@
 {
   "name": "leafletjsexample",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
+    "predocs:dev": "node ./scripts/index.js",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
@@ -20,8 +22,13 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "consola": "^3.2.3",
+    "fs-extra": "^11.1.1",
+    "md5": "^2.3.0",
+    "ohmyfetch": "^0.4.21",
     "prettier": "^3.0.0",
     "sass": "^1.64.2",
+    "simple-git": "^3.19.1",
     "vitepress": "1.0.0-beta.7"
   },
   "description": "",

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
-import { i18n } from './config/i18n';
 import { nav } from './config/nav';
 import { sidebar } from './config/sidebar';
+import { MarkdownTransform } from './plugins/markdownTransform.js';
 
 export default defineConfig({
   base: '/',
@@ -57,7 +57,6 @@ export default defineConfig({
   themeConfig: {
     nav,
     sidebar,
-    i18n,
     logo: '/logo.png',
     outlineTitle: '快速前往',
     editLink: {
@@ -74,5 +73,8 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2023-present vaebe'
     }
+  },
+  vite: {
+    plugins: [MarkdownTransform()]
   }
 });
