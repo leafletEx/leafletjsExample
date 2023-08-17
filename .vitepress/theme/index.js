@@ -3,6 +3,7 @@ import { h } from 'vue';
 import Theme from 'vitepress/theme';
 import './style.css';
 import './customStyle.scss';
+import Contributors from './components/Contributors.vue';
 
 export default {
   extends: Theme,
@@ -11,7 +12,9 @@ export default {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     });
   },
-  async enhanceApp() {
+  async enhanceApp({ app }) {
+    app.component('Contributors', Contributors);
+
     if (typeof window !== 'undefined') {
       await import('leaflet');
 
