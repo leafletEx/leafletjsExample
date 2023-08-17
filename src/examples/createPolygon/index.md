@@ -1,5 +1,5 @@
 <script setup>
-import demo from './index.vue'
+import demo from './index.client.vue'
 </script>
 
 # Polygon 多边形
@@ -14,7 +14,7 @@ import demo from './index.vue'
 
 ::: code-group
 
-<<< ./index.vue
+<<< ./index.client.vue
 
 <<< @/components/InitMapTianditu.vue
 :::
