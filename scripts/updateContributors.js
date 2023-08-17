@@ -11,7 +11,7 @@ async function fetchContributors(page = 1) {
 
   const data =
     (await $fetch(
-      `https://api.github.com/repos/vueuse/vueuse/contributors?per_page=100&page=${page}`,
+      `https://github.com/vaebe/leafletjsExample/contributors?per_page=100&page=${page}`,
       {
         method: 'get',
         headers: {

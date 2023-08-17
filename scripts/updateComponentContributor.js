@@ -1,7 +1,6 @@
 import { join } from 'node:path';
 import md5 from 'md5';
 import Git from 'simple-git';
-import examplesList from './examplesList.json' assert { type: 'json' };
 import fs from 'fs-extra';
 import { consola } from 'consola';
 import { DIR_SRC } from './utils.js';
@@ -22,8 +21,6 @@ export async function getContributorsAt(path) {
     list
       .filter((i) => i[1])
       .forEach((i) => {
-        console.log(i[1], '=-=-=');
-
         if (!map[i[1]]) {
           map[i[1]] = {
             name: i[0],
@@ -44,6 +41,10 @@ export async function getContributorsAt(path) {
 // 获取组件贡献者
 export async function getComponentContributor() {
   consola.info('开始获取组件贡献者--------------------');
+  const examplesList = await import('./examplesList.json', {
+    assert: { type: 'json' }
+  }).then((res) => res.default);
+
   const result = await Promise.all(
     examplesList.map(async (i) => {
       return [i.name, await getContributorsAt(i.path)];
