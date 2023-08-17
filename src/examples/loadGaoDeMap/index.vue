@@ -10,7 +10,7 @@ const { initMap, setGaoDeLayer } = useGaoDeMap();
 onMounted(() => {
   mapObj.value = initMap();
 
-  // 设置图层
+  // 设置底图
   setGaoDeLayer();
 });
 
