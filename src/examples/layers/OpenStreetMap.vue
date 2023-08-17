@@ -11,7 +11,7 @@ const setLayer = () => {
   const layer = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
-      maxZoom: 19,
+      maxZoom: 18,
       attribution:
         '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }

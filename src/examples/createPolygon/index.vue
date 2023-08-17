@@ -1,10 +1,5 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import {
-  booleanPointInPolygon,
-  point as turfPoint,
-  polygon as turfPolygon
-} from '@turf/turf';
+import { defineAsyncComponent } from 'vue';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')

@@ -28,16 +28,12 @@ const mapObj = ref();
 
 // 地图导出图片
 const exportPicture = () => {
-  // ElMessage.info('正在导出中，请稍等片刻！');
-
   leafletImage(mapObj.value, async (err, canvas) => {
     console.log(err);
     const fileBase64 = canvas.toDataURL();
     const file = await base64ToFile(fileBase64, '地图图片导出', 'png');
 
     saveAs(file, `地图图片导出.png`);
-
-    // ElMessage.success('导出成功！');
   });
 };
 

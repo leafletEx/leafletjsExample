@@ -32,7 +32,7 @@ const createMarker = () => {
 
 /**
  * 批量创建多个 marker
- * 与创建个 marker 不同的是批量创建多个 marker 时会创建一个图层组
+ * 与创建单个 marker 不同的是批量创建多个 marker 时会创建一个图层组
  * 先将 marker 加载到图层组中在添加到地图这样做的原因在于更容易管理不同覆盖物。
  */
 const markerLayerGroup = ref();

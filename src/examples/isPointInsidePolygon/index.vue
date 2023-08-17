@@ -53,7 +53,7 @@ const getCirclePolygonCoords = (point, radius) => {
     coords.push([x, y]);
   }
 
-  // 关闭多边形，多边形头尾节点需一样。
+  // 关闭多边形，多边形头尾节点需要一样。
   coords.push(coords[0]);
 
   return coords;

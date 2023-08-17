@@ -7,7 +7,7 @@ const InitMap = defineAsyncComponent(() =>
 );
 
 onMounted(() => {
-  // 注册插件 todo 项目使用无需在 onMounted 中调用，这里是为了 vitePress 打包
+  // 注册插件 todo 项目使用无需在 onMounted 中调用，这里是为了 vitePress 打包。
   leafletHotline(L);
 });
 
