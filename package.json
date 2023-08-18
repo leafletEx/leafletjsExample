@@ -5,8 +5,8 @@
   "scripts": {
     "predocs:dev": "node ./scripts/index.js",
     "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:build": "npm run predocs:dev && vitepress build",
+    "docs:preview": " vitepress preview"
   },
   "dependencies": {
     "@geoman-io/leaflet-geoman-free": "^2.14.2",
