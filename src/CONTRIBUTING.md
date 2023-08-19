@@ -21,6 +21,13 @@ pnpm dev
 
 ## 注意事项
 
-leafletjs 中使用了 window，vite 打包时是 node 环境并没有 window 对象所以会报错，解决办法是在 `.vitepress/theme/index.js`
++ leafletjs 中使用了 window，vite 打包时是 node 环境并没有 window 对象所以会报错，解决办法是在 `.vitepress/theme/index.js`
 中动态引入leafletjs及其插件。
++ 项目启动需要 **node 18.x** 因为使用了相关语法
+
+
+
+
+
+
 
