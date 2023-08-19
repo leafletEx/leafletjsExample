@@ -74,5 +74,6 @@ onUnmounted(() => {
 <style scoped>
 .map {
   height: 40vh;
+  z-index: 0;
 }
 </style>
