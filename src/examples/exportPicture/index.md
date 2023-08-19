@@ -9,7 +9,7 @@ import demo from './index.vue'
 ## 示例
 
 ::: tip 提示
-导出需要一些时间但不会太久请稍后，正常会有一个 loading 来处理 :tea:。
+导出需要一些时间请稍后，正常会有一个 loading 来处理 :tea:。
 :::
 
 <demo></demo>
