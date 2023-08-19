@@ -21,6 +21,7 @@ pnpm-debug.log*
 *.sln
 *.sw?
 *.zip
+*.sh
 
 # files
 .vitepress/cache/
