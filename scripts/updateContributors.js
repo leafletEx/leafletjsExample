@@ -5,13 +5,11 @@ import { consola } from 'consola';
 import { DIR_SRC } from './utils.js';
 
 async function fetchContributors(page = 1) {
-  const additional = ['egoist'];
-
   const collaborators = [];
 
   const data =
     (await $fetch(
-      `https://github.com/vaebe/leafletjsExample/contributors?per_page=100&page=${page}`,
+      `https://api.github.com/repos/vaebe/leafletjsExample/contributors?per_page=100&page=${page}`,
       {
         method: 'get',
         headers: {
@@ -20,7 +18,15 @@ async function fetchContributors(page = 1) {
       }
     )) || [];
 
-  collaborators.push(...data.map((i) => i.login));
+  collaborators.push(
+    ...data.map((i) => {
+      return {
+        name: i.login,
+        avatar: i.avatar_url,
+        homeUrl: i.html_url
+      };
+    })
+  );
 
   if (data.length === 100)
     collaborators.push(...(await fetchContributors(page + 1)));
@@ -30,10 +36,9 @@ async function fetchContributors(page = 1) {
       ...collaborators.filter(
         (collaborator) =>
           !['renovate[bot]', 'dependabot[bot]', 'renovate-bot'].includes(
-            collaborator
+            collaborator.name
           )
-      ),
-      ...additional
+      )
     ])
   );
 }
