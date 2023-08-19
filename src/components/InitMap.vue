@@ -1,15 +1,14 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-import { v4 as uuidv4 } from 'uuid';
 // todo 项目使用请放开 leaflet 引入
 // import L from 'leaflet';
 
 const emit = defineEmits(['mapLoad']);
 
-const mapDomId = uuidv4();
+const mapRef = ref();
 
 const initMap = () => {
-  const map = L.map(mapDomId, {
+  const map = L.map(mapRef.value, {
     center: [32.0237855, 118.8075675],
     zoom: 11,
     minZoom: 6,
@@ -42,7 +41,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :id="mapDomId" class="map"></div>
+  <div ref="mapRef" class="map"></div>
 </template>
 
 <style scoped>
