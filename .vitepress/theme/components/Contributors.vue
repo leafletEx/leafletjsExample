@@ -16,14 +16,11 @@ const contributors = computed(() => componentContributor[props.fn] || []);
   <div class="component-contributor-avatar-list">
     <div
       v-for="item of contributors"
-      :key="item.hash"
+      :key="item.login"
       class="component-contributor-avatar-list__item"
     >
-      <a :href="`https://github.com/${item.name}`" target="_blank">
-        <img
-          :src="`https://github.com/${item.name}.png`"
-          alt="component-contributor-avatar"
-        />
+      <a :href="`https://github.com/${item.login}`" target="_blank">
+        <img :src="item.avatar" alt="component-contributor-avatar" />
         {{ item.name }}
       </a>
     </div>
