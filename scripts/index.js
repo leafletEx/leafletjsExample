@@ -1,11 +1,11 @@
 import { updateContributors } from './updateContributors.js';
-import { getAllExamples } from './updateExamplesList.js';
+import { generateExamplesJson } from './updateExamplesList.js';
 import { getComponentContributor } from './updateComponentContributor.js';
 
-export async function init() {
+export async function main() {
   await updateContributors();
-  await getAllExamples();
+  await generateExamplesJson();
   await getComponentContributor();
 }
 
-init();
+main();

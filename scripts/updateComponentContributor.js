@@ -2,8 +2,10 @@ import { join } from 'node:path';
 import md5 from 'md5';
 import Git from 'simple-git';
 import fs from 'fs-extra';
+import chalk from 'chalk';
 import { consola } from 'consola';
 import { DIR_SRC } from './utils.js';
+import {getAllExamples} from './updateExamplesList.js'
 
 const git = Git({
   maxConcurrentProcesses: 200
@@ -40,10 +42,8 @@ export async function getContributorsAt(path) {
 
 // 获取组件贡献者
 export async function getComponentContributor() {
-  consola.info('开始获取组件贡献者--------------------');
-  const examplesList = await import('./examplesList.json', {
-    assert: { type: 'json' }
-  }).then((res) => res.default);
+  consola.info('开始获取组件贡献者');
+  const examplesList = await getAllExamples()
 
   const result = await Promise.all(
     examplesList.map(async (i) => {
@@ -57,5 +57,5 @@ export async function getComponentContributor() {
     'utf8'
   );
 
-  consola.success('获取组件贡献者完成--------------------');
+  consola.success(chalk.green('生成组件贡献者 json 成功'));
 }

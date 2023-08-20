@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import { $fetch } from 'ohmyfetch';
 import { consola } from 'consola';
 import { DIR_SRC } from './utils.js';
+import chalk from 'chalk';
 
 async function fetchContributors(page = 1) {
   const collaborators = [];
@@ -45,7 +46,7 @@ async function fetchContributors(page = 1) {
 
 // 获取所有贡献值
 export async function updateContributors() {
-  consola.info('开始获取项目贡献者--------------------');
+  consola.info('开始获取项目贡献者...');
 
   const collaborators = await fetchContributors();
 
@@ -55,5 +56,5 @@ export async function updateContributors() {
     'utf8'
   );
 
-  consola.success('获取项目贡献者完成--------------------');
+    consola.success(chalk.green('生成项目贡献者 json 成功'));
 }
