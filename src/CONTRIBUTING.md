@@ -14,7 +14,7 @@
 # username 为用户名，执行前请替换
 git clone git@github.com:username/leafletjsExample.git
 cd leafletjsExample
-git remote add upstream git@github.com:vaebe/leafletjsExample.git
+git remote add upstream git@github.com:leafletjsExample/leafletjsExample.git
 pnpm i
 pnpm dev
 ```
