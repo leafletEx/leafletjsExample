@@ -65,14 +65,14 @@ export default defineConfig({
     },
     outlineTitle: '快速前往',
     editLink: {
-      pattern: 'https://github.com/vaebe/leafletjsExample/blob/main/src/:path',
+      pattern: 'https://github.com/leafletjsExample/leafletjsExample/blob/dev/src/:path',
       text: '在 GitHub 上编辑此页'
     },
     lastUpdated: {
       text: '最近更新时间'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vaebe/leafletjsExample' }
+      { icon: 'github', link: 'https://github.com/leafletjsExample/leafletjsExample' }
     ],
     footer: {
       message: 'Released under the MIT License.',
