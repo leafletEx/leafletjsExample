@@ -120,8 +120,10 @@ const getContributorsByComponents = async (components = []) => {
 };
 
 async function getContributors() {
-  if (!process.env.GITHUB_API_TOKEN)
-    throw new Error('GITHUB_API_TOKEN is empty');
+  if (!process.env.GITHUB_API_TOKEN) {
+    consola.info('生成贡献者需要有 GITHUB_API_TOKEN');
+    return [];
+  }
 
   // 获取所有示例
   const components = await glob('*', {
