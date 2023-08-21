@@ -40,9 +40,9 @@ pnpm install leaflet.heat
 
 ## Methods
 
-| methods    |        描述         |                  参数 |
-|------------|:-----------------:|--------------------:|
-| setOptions |  设置新的热力图数据并重新绘制。  | [options](#options) |
-| addLatLng  | 向热力图添加一个新点并重新绘制它。 |              latlng |
-| setLatLngs |  重新设置热力图数据并重新绘制它  |             latlngs |
-| redraw     |       重新绘制        |                   - |
+| methods    |        描述         |                                 参数 |
+|------------|:-----------------:|-----------------------------------:|
+| setOptions |  设置新的热力图数据并重新绘制。  |                [options](#options) |
+| addLatLng  | 向热力图添加一个新点并重新绘制它。 | latlng`{ lat: 1, lng: 1, max: 1 }` |
+| setLatLngs |  重新设置热力图数据并重新绘制它  |                            latlngs |
+| redraw     |       重新绘制        |                                  - |
