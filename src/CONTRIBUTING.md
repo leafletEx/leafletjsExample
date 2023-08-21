@@ -24,6 +24,7 @@ pnpm dev
 + leafletjs 中使用了 window，vite 打包时是 node 环境并没有 window 对象所以会报错，解决办法是在 `.vitepress/theme/index.js`
 中动态引入leafletjs及其插件。
 + node 版本需要 18.x 因为使用了内置的 fetch
++ 请给 commit 签名参考: https://insights.thoughtworks.cn/how-to-sign-git-commit/
 
 
 
