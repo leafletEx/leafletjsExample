@@ -23,6 +23,10 @@ export const sidebar = {
         {
           text: 'Polygon 多边形',
           link: '/examples/createPolygon/'
+        },
+        {
+          text: 'GeoJSON',
+          link: '/examples/geoJson/'
         }
       ]
     },
