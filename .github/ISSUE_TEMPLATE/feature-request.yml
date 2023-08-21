@@ -1,0 +1,14 @@
+name: ✨ Feature Request
+description: Propose new features to leafletjs example to improve it.
+title: '✨ [Feature]: '
+labels: ['✨ feature']
+body:
+  - type: textarea
+    id: feature-solve
+    attributes:
+      label: Functional description
+      description: |
+        Please describe this feature in as much detail as possible。
+      placeholder: Please Input
+    validations:
+      required: true
