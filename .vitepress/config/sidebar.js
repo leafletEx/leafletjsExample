@@ -51,6 +51,10 @@ export const sidebar = {
           link: '/examples/webGLHeatMap/'
         },
         {
+          text: 'leaflet.heat 热力图',
+          link: '/examples/leaflet_heat/'
+        },
+        {
           text: '点聚合',
           link: '/examples/pointAggregation/'
         },

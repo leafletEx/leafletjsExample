@@ -22,6 +22,9 @@ export default {
       await import('leaflet-webgl-heatmap');
       await import('leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap');
 
+      // leaflet.heat 热力图
+      await import('leaflet.heat');
+
       // 点聚合
       await import('leaflet.markercluster');
 

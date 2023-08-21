@@ -4,6 +4,9 @@ dependencies:
   '@geoman-io/leaflet-geoman-free':
     specifier: ^2.14.2
     version: 2.14.2(leaflet@1.9.4)
+  '@mars3d/heatmap.js':
+    specifier: ^2.0.7
+    version: 2.0.7
   '@turf/turf':
     specifier: ^6.5.0
     version: 6.5.0
@@ -16,6 +19,9 @@ dependencies:
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
+  leaflet-heatmap:
+    specifier: ^1.0.0
+    version: 1.0.0
   leaflet-hotline:
     specifier: ^0.4.0
     version: 0.4.0
@@ -25,6 +31,9 @@ dependencies:
   leaflet-webgl-heatmap:
     specifier: ^0.2.7
     version: 0.2.7
+  leaflet.heat:
+    specifier: ^0.2.0
+    version: 0.2.0
   leaflet.markercluster:
     specifier: ^1.5.3
     version: 1.5.3(leaflet@1.9.4)
@@ -760,6 +769,10 @@ packages:
   /@kwsites/promise-deferred@1.1.1:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
+
+  /@mars3d/heatmap.js@2.0.7:
+    resolution: {integrity: sha512-cIXF6XF761d0ZS0XB43UlNvvXZrHj9VIJv4H6da2AiGS/R1gUs7KvSeu0XEEztiG4FdoeLrwIjIV0yZYDwIDZg==}
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3243,6 +3256,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /heatmap.js@2.0.5:
+    resolution: {integrity: sha512-CG2gYFP5Cv9IQCXEg3ZRxnJDyAilhWnQlAuHYGuWVzv6mFtQelS1bR9iN80IyDmFECbFPbg6I0LR5uAFHgCthw==}
+    dev: false
+
   /homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -3563,6 +3580,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /leaflet-heatmap@1.0.0:
+    resolution: {integrity: sha512-WP/emZYwjWaEnWMcE2dftuJvtjp53zmJcHtVTHUqPN7AQEowHxDTLH5j1BJjE4uL1K5dJclBLX4oLpnOGS/qTw==}
+    dependencies:
+      heatmap.js: 2.0.5
+      leaflet: 1.9.4
+    dev: false
+
   /leaflet-hotline@0.4.0:
     resolution: {integrity: sha512-+In6c8WxMsRKMmwQ1m2GmbNxbXvA3WsrOilJGK7l4Sj+mUDh1gdyGMYCIoRBtUeX7lMvBc4KKeEVAlwQERKpxg==}
     dev: false
@@ -3575,6 +3599,10 @@ packages:
 
   /leaflet-webgl-heatmap@0.2.7:
     resolution: {integrity: sha512-PFntI52n5YiCkdn3fnisyWS0HgAQYRImPhD9Vn8ZY0XhVSjjJzJhXgci9WbLLD5xr77CbQrfak3bQSxa7WS5mQ==}
+    dev: false
+
+  /leaflet.heat@0.2.0:
+    resolution: {integrity: sha512-Cd5PbAA/rX3X3XKxfDoUGi9qp78FyhWYurFg3nsfhntcM/MCNK08pRkf4iEenO1KNqwVPKCmkyktjW3UD+h9bQ==}
     dev: false
 
   /leaflet.markercluster@1.5.3(leaflet@1.9.4):
