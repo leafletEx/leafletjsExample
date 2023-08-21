@@ -1,0 +1,35 @@
+name: '🐛 Bug report'
+description: Create a report to help us improve leafletjs example
+title: '🐛 [Bug]: '
+labels: ['🐛  bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the following carefully in order to better fix the problem.
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Step to reproduce
+      description: |
+        **Please provide reset steps.**
+      placeholder: Please Input
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What is expected
+      placeholder: Please Input
+  - type: textarea
+    id: actually
+    attributes:
+      label: What is actually happening
+      placeholder: Please Input
+  - type: textarea
+    id: additional-comments
+    attributes:
+      label: Any additional comments (optional)
+      description: |
+        **Some background / context of how you ran into this bug.**
+      placeholder: Please Input
