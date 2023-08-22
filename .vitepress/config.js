@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { nav } from './config/nav';
 import { sidebar } from './config/sidebar';
+import { algoliaSearch } from './config/algoliaSearch.js';
 import { MarkdownTransform } from './plugins/markdownTransform.js';
 
 export default defineConfig({
@@ -65,42 +66,24 @@ export default defineConfig({
     },
     outlineTitle: '快速前往',
     editLink: {
-      pattern: 'https://github.com/leafletjsExample/leafletjsExample/blob/dev/src/:path',
+      pattern:
+        'https://github.com/leafletjsExample/leafletjsExample/blob/dev/src/:path',
       text: '在 GitHub 上编辑此页'
     },
     lastUpdated: {
       text: '最近更新时间'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/leafletjsExample/leafletjsExample' }
+      {
+        icon: 'github',
+        link: 'https://github.com/leafletjsExample/leafletjsExample'
+      }
     ],
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2023-present vaebe'
     },
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    search: algoliaSearch
   },
   vite: {
     plugins: [MarkdownTransform()]

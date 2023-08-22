@@ -54,6 +54,7 @@ export const sidebar = {
           text: 'leaflet.heat 热力图',
           link: '/examples/leaflet_heat/'
         },
+        { text: 'heatmapjs 热力图', link: '/examples/heatmapjs/' },
         {
           text: '点聚合',
           link: '/examples/pointAggregation/'
