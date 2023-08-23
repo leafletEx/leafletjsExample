@@ -4,9 +4,6 @@ dependencies:
   '@geoman-io/leaflet-geoman-free':
     specifier: ^2.14.2
     version: 2.14.2(leaflet@1.9.4)
-  '@mars3d/heatmap.js':
-    specifier: ^2.0.7
-    version: 2.0.7
   '@turf/turf':
     specifier: ^6.5.0
     version: 6.5.0
@@ -19,9 +16,6 @@ dependencies:
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
-  leaflet-heatmap:
-    specifier: ^1.0.0
-    version: 1.0.0
   leaflet-hotline:
     specifier: ^0.4.0
     version: 0.4.0
@@ -103,8 +97,8 @@ devDependencies:
     specifier: ^3.19.1
     version: 3.19.1
   vitepress:
-    specifier: 1.0.0-beta.7
-    version: 1.0.0-beta.7(@algolia/client-search@4.19.1)(@types/node@20.4.7)(sass@1.64.2)(search-insights@2.7.0)
+    specifier: 1.0.0-rc.4
+    version: 1.0.0-rc.4(@algolia/client-search@4.19.1)(@types/node@20.4.7)(sass@1.64.2)(search-insights@2.7.0)
 
 packages:
 
@@ -769,10 +763,6 @@ packages:
   /@kwsites/promise-deferred@1.1.1:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
-
-  /@mars3d/heatmap.js@2.0.7:
-    resolution: {integrity: sha512-cIXF6XF761d0ZS0XB43UlNvvXZrHj9VIJv4H6da2AiGS/R1gUs7KvSeu0XEEztiG4FdoeLrwIjIV0yZYDwIDZg==}
-    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2117,14 +2107,14 @@ packages:
     resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
     dev: true
 
-  /@vitejs/plugin-vue@4.2.3(vite@4.4.8)(vue@3.3.4):
+  /@vitejs/plugin-vue@4.2.3(vite@4.4.9)(vue@3.3.4):
     resolution: {integrity: sha512-R6JDUfiZbJA9cMiguQ7jxALsgiprjBeHL5ikpXfJCH62pPHtI+JdJ5xWj6Ev73yXSlYl86+blXn1kZHQ7uElxw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.8(@types/node@20.4.7)(sass@1.64.2)
+      vite: 4.4.9(@types/node@20.4.7)(sass@1.64.2)
       vue: 3.3.4
     dev: true
 
@@ -3256,10 +3246,6 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
-  /heatmap.js@2.0.5:
-    resolution: {integrity: sha512-CG2gYFP5Cv9IQCXEg3ZRxnJDyAilhWnQlAuHYGuWVzv6mFtQelS1bR9iN80IyDmFECbFPbg6I0LR5uAFHgCthw==}
-    dev: false
-
   /homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -3579,13 +3565,6 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /leaflet-heatmap@1.0.0:
-    resolution: {integrity: sha512-WP/emZYwjWaEnWMcE2dftuJvtjp53zmJcHtVTHUqPN7AQEowHxDTLH5j1BJjE4uL1K5dJclBLX4oLpnOGS/qTw==}
-    dependencies:
-      heatmap.js: 2.0.5
-      leaflet: 1.9.4
-    dev: false
 
   /leaflet-hotline@0.4.0:
     resolution: {integrity: sha512-+In6c8WxMsRKMmwQ1m2GmbNxbXvA3WsrOilJGK7l4Sj+mUDh1gdyGMYCIoRBtUeX7lMvBc4KKeEVAlwQERKpxg==}
@@ -4228,8 +4207,8 @@ packages:
     resolution: {integrity: sha512-l4NwboJM74Ilm4VKfbAtFeGq7aEjWL+5kVFcmgFA2MrdnQWx9iE/tUGvxY5HyMI7o/WpSIUFLbC5fbeaHgSCYg==}
     dev: false
 
-  /rollup@3.27.0:
-    resolution: {integrity: sha512-aOltLCrYZ0FhJDm7fCqwTjIUEVjWjcydKBV/Zeid6Mn8BWgDCUBBWT5beM5ieForYNo/1ZHuGJdka26kvQ3Gzg==}
+  /rollup@3.28.0:
+    resolution: {integrity: sha512-d7zhvo1OUY2SXSM6pfNjgD5+d0Nz87CUp4mt8l/GgVP3oBsPwzNvSzyu1me6BSG9JIgWNTVcafIXBIyM8yQ3yw==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -4643,8 +4622,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.4.8(@types/node@20.4.7)(sass@1.64.2):
-    resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
+  /vite@4.4.9(@types/node@20.4.7)(sass@1.64.2):
+    resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -4674,19 +4653,19 @@ packages:
       '@types/node': 20.4.7
       esbuild: 0.18.17
       postcss: 8.4.27
-      rollup: 3.27.0
+      rollup: 3.28.0
       sass: 1.64.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress@1.0.0-beta.7(@algolia/client-search@4.19.1)(@types/node@20.4.7)(sass@1.64.2)(search-insights@2.7.0):
-    resolution: {integrity: sha512-P9Rw+FXatKIU4fVdtKxqwHl6fby8E/8zE3FIfep6meNgN4BxbWqoKJ6yfuuQQR9IrpQqwnyaBh4LSabyll6tWg==}
+  /vitepress@1.0.0-rc.4(@algolia/client-search@4.19.1)(@types/node@20.4.7)(sass@1.64.2)(search-insights@2.7.0):
+    resolution: {integrity: sha512-JCQ89Bm6ECUTnyzyas3JENo00UDJeK8q1SUQyJYou+4Yz5BKEc/F3O21cu++DnUT2zXc0kvQ2Aj4BZCc/nioXQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.1
       '@docsearch/js': 3.5.1(@algolia/client-search@4.19.1)(search-insights@2.7.0)
-      '@vitejs/plugin-vue': 4.2.3(vite@4.4.8)(vue@3.3.4)
+      '@vitejs/plugin-vue': 4.2.3(vite@4.4.9)(vue@3.3.4)
       '@vue/devtools-api': 6.5.0
       '@vueuse/core': 10.3.0(vue@3.3.4)
       '@vueuse/integrations': 10.3.0(focus-trap@7.5.2)(vue@3.3.4)
@@ -4695,7 +4674,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.1.0
       shiki: 0.14.3
-      vite: 4.4.8(@types/node@20.4.7)(sass@1.64.2)
+      vite: 4.4.9(@types/node@20.4.7)(sass@1.64.2)
       vue: 3.3.4
     transitivePeerDependencies:
       - '@algolia/client-search'

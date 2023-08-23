@@ -31,6 +31,21 @@ export default defineConfig({
         content: 'width=device-width, initial-scale=1.0, viewport-fit=cover'
       }
     ],
+    //  heatmapjs 热力图依赖
+    [
+      'script',
+      {
+        async: '',
+        src: '/heatmapjs/heatmap.js'
+      }
+    ],
+    [
+      'script',
+      {
+        async: '',
+        src: '/heatmapjs/leaflet-heatmap.js'
+      }
+    ],
     // 谷歌分析
     [
       'script',
