@@ -23,7 +23,8 @@ pnpm install leaflet-heatmap @mars3d/heatmap.js
 
 ### vite 使用 script 引入
 
-将 `leaflet-heatmap.js 、heatmap.js` 下载后在index.html 中引入
+将 `leaflet-heatmap.js 、heatmap.js` 下载后在index.html
+中引入[猛击查看在线示例](https://stackblitz.com/edit/vitejs-vite-indxgm?file=index.html)
 
 ```js
 <script src="./heatmap.js"></script>
