@@ -36,9 +36,28 @@ const initHeatmap = () => {
   heatmapLayer.setData(testData);
 };
 
+/**
+ * todo 这样写只是因为是在 vitePress 中
+ * todo 项目中可直接在 script 中引入，需要注意的是 leaflet 要先于插件引入
+ */
+const setHeatmapjsToHead = () => {
+  const heatmapJs = document.createElement('script');
+  heatmapJs.src = '/heatmapjs/heatmap.js';
+  document.head.appendChild(heatmapJs);
+
+  const leafletHeatmapJs = document.createElement('script');
+  leafletHeatmapJs.src = '/heatmapjs/leaflet-heatmap.js';
+  document.head.appendChild(leafletHeatmapJs);
+
+  setTimeout(() => {
+    initHeatmap();
+  }, 1000);
+};
+
 const mapLoad = (map) => {
   mapObj.value = map;
-  initHeatmap();
+
+  setHeatmapjsToHead();
 };
 </script>
 
