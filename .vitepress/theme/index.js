@@ -26,10 +26,13 @@ export default {
       await import('leaflet.heat');
 
       // 点聚合
-      await import('leaflet.markercluster');
+      import('leaflet.markercluster');
 
       // 图形的绘制与编辑
-      await import('@geoman-io/leaflet-geoman-free');
+      import('@geoman-io/leaflet-geoman-free');
+
+      // 测距
+      import('leaflet-ruler');
     }
   }
 };

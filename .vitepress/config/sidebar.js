@@ -74,6 +74,10 @@ export const sidebar = {
         {
           text: '渐变折线',
           link: '/examples/gradientPolyline/'
+        },
+        {
+          text: '测距',
+          link: '/examples/measureDistance/'
         }
       ]
     }

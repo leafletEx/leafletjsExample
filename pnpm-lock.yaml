@@ -22,6 +22,9 @@ dependencies:
   leaflet-image:
     specifier: ^0.4.0
     version: 0.4.0
+  leaflet-ruler:
+    specifier: ^1.0.0
+    version: 1.0.0(leaflet@1.9.4)
   leaflet-webgl-heatmap:
     specifier: ^0.2.7
     version: 0.2.7
@@ -3574,6 +3577,14 @@ packages:
     resolution: {integrity: sha512-J/vLCHiYNXlcQ/SZbHhj/VF5k3thxTryWijoqMO9sB20KV7hlMNUZDgxcDzXnfjk4hcYcFfGbveVc1tyQ9FgYw==}
     dependencies:
       d3-queue: 2.0.3
+    dev: false
+
+  /leaflet-ruler@1.0.0(leaflet@1.9.4):
+    resolution: {integrity: sha512-5Ti99czL+hhcd5rMmT5JBkDvzErPUM+ogJbP6NDzJEMK5vCGqS9/1BrMpVeCcCaxViSWLPf9qcXRGcGO85UCZA==}
+    peerDependencies:
+      leaflet: ^1.0.0
+    dependencies:
+      leaflet: 1.9.4
     dev: false
 
   /leaflet-webgl-heatmap@0.2.7:
