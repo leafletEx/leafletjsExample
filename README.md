@@ -13,3 +13,7 @@
 + https://github.com/antvis/L7-Leaflet antvL7
 + https://github.com/Leaflet/Leaflet.Editable 轻量的图形编辑插件
 + https://github.com/wandergis/leaflet-echarts  最新版本 v3 不可用
++ https://github.com/Igor-Vladyka/leaflet.motion 将简单的运动添加到你的多段线上，并在线头处设置标记。
++ https://github.com/ewoken/Leaflet.MovingMarker 允许以自定义的持续时间沿多段线移动标记。
++ https://prominentedge.com/leaflet-measure-path/ 线、面积测量
++ 

@@ -1,11 +1,15 @@
 <script setup>
 import GeoQMap from './Geoq.vue';
 import OpenStreetMap from './OpenStreetMap.vue';
+import GaoDeMap from './GaoDe.vue';
+import InitMapTianditu from '../../components/InitMapTianditu.vue'
 </script>
 
 # 图层
 
 ## 天地图底图
+
+<InitMapTianditu></InitMapTianditu>
 
 ```js
 // 底图
@@ -39,6 +43,8 @@ L.tileLayer(
 
 ## 高德地图底图
 
+<GaoDeMap></GaoDeMap>
+
 ```js
 // 高德地图
 L.tileLayer('http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
@@ -46,21 +52,89 @@ L.tileLayer('http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale
 })
 
 // 高德影像
-L.layerGroup([L.tileLayer('http://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}', {
-    subdomains: "1234"
-}), L.tileLayer('http://t{s}.tianditu.cn/DataServer?T=cta_w&X={x}&Y={y}&L={z}', {
-    subdomains: "1234"
-})])
+L.tileLayer(
+    'http://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}',
+    {
+        subdomains: '1234',
+        attribution: '&copy; 高德'
+    }
+)
 ```
 
 ## GeoQ 底图
 
 <geo-q-map></geo-q-map>
 
-<<< ./Geoq.vue
+```js
+  const layers = {
+    '01': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity_Mobile/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '高清中国基础地图'
+    },
+    '02': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunityENG/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '英文地图'
+    },
+    '03': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '彩色中文地图'
+    },
+    '04': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '灰色地图'
+    },
+    '05': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '蓝黑色地图'
+    },
+    '06': {
+        layer: L.tileLayer(
+            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{z}/{y}/{x}',
+            {
+                attribution: '&copy; 北京捷泰天域信息技术有限公司'
+            }
+        ),
+        name: '暖色地图'
+    }
+};
+```
 
 ## openstreetmap 底图
 
 <open-street-map></open-street-map>
 
-<<< ./OpenStreetMap.vue
+```js
+L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        maxZoom: 18,
+        attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }
+);
+```
