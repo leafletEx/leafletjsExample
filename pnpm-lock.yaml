@@ -28,6 +28,9 @@ dependencies:
   leaflet-webgl-heatmap:
     specifier: ^0.2.7
     version: 0.2.7
+  leaflet.fullscreen:
+    specifier: ^2.4.0
+    version: 2.4.0
   leaflet.heat:
     specifier: ^0.2.0
     version: 0.2.0
@@ -37,6 +40,9 @@ dependencies:
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
+  screenfull:
+    specifier: ^6.0.2
+    version: 6.0.2
   uuid:
     specifier: ^9.0.0
     version: 9.0.0
@@ -3591,6 +3597,10 @@ packages:
     resolution: {integrity: sha512-PFntI52n5YiCkdn3fnisyWS0HgAQYRImPhD9Vn8ZY0XhVSjjJzJhXgci9WbLLD5xr77CbQrfak3bQSxa7WS5mQ==}
     dev: false
 
+  /leaflet.fullscreen@2.4.0:
+    resolution: {integrity: sha512-41O0ikdUR0bVC0QfoFN3W5S+9yoeHqL74i0QQafa/W79+ij/G7IRZwpfwPuxoNwpydoUJ/9Mq/6Hp7WZOnkWzQ==}
+    dev: false
+
   /leaflet.heat@0.2.0:
     resolution: {integrity: sha512-Cd5PbAA/rX3X3XKxfDoUGi9qp78FyhWYurFg3nsfhntcM/MCNK08pRkf4iEenO1KNqwVPKCmkyktjW3UD+h9bQ==}
     dev: false
@@ -4267,6 +4277,11 @@ packages:
       immutable: 4.3.2
       source-map-js: 1.0.2
     dev: true
+
+  /screenfull@6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dev: false
 
   /search-insights@2.7.0:
     resolution: {integrity: sha512-GLbVaGgzYEKMvuJbHRhLi1qoBFnjXZGZ6l4LxOYPCp4lI2jDRB3jPU9/XNhMwv6kvnA9slTreq6pvK+b3o3aqg==}

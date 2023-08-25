@@ -44,6 +44,15 @@ export const sidebar = {
       ]
     },
     {
+      text: '控件',
+      items: [
+        {
+          text: '全屏',
+          link: '/examples/fullscreen/'
+        }
+      ]
+    },
+    {
       text: '插件',
       items: [
         {
