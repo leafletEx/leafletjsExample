@@ -33,6 +33,9 @@ export default {
 
       // 测距
       import('leaflet-ruler');
+
+      // 全屏
+      import('leaflet.fullscreen/Control.FullScreen.js')
     }
   }
 };
