@@ -1,6 +1,7 @@
 <script setup>
 import { defineAsyncComponent, onMounted } from 'vue';
 import leafletHotline from 'leaflet-hotline';
+import geoJson from '../../public/geojson/gulou.json';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')
@@ -17,12 +18,7 @@ function generateRandomNumber(min, max) {
 
 // 创建渐变折线
 const createGradientPolyline = async (map) => {
-  // 获取南京市边界
-  const list = await fetch(
-    'https://geo.datav.aliyun.com/areas_v3/bound/320106.json'
-  )
-    .then((res) => res.json())
-    .then((res) => res.features[0].geometry.coordinates[0][0]);
+  const list = geoJson.features[0].geometry.coordinates[0][0];
 
   // 处理数据
   const listData = list.map((item) => [

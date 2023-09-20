@@ -31,6 +31,8 @@ leafletHotline(L);
 <<< ./index.vue
 
 <<< @/components/InitMapTianditu.vue
+
+<<< ../../public/geojson/gulou.json
 :::
 
 ## options
