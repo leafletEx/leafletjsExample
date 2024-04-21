@@ -14,8 +14,8 @@ hero:
       text: 开始
       link: /examples/
     - theme: alt
-      text: 关于
-      link: /api-examples
+      text: Github
+      link: https://github.com/leafletjsExample/leafletjsExample
 
 features:
   - title: leafletjs
