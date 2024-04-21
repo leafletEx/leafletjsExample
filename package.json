@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@geoman-io/leaflet-geoman-free": "^2.14.2",
+    "@giscus/vue": "^3.0.0",
     "@turf/turf": "^6.5.0",
     "file-saver": "^2.0.5",
     "gcoord": "^1.0.5",
