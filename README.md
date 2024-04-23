@@ -6,6 +6,8 @@
 
 安装依赖 `pnpm i`
 
+执行 `pnpm run predocs:build` 获取下相关信息
+
 启动 `pnpm run docs:dev`
 
 

@@ -31,7 +31,9 @@ export default defineConfig({
       prev: '上一页',
       next: '下一页'
     },
-    outlineTitle: '快速前往',
+    outline: {
+      label: "页面导航",
+    },
     editLink: {
       pattern:
         'https://github.com/leafletjsExample/leafletjsExample/blob/dev/src/:path',
