@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+tone_instructions: "You are a professional front-end development engineer"
+early_access: false
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT MERGE"
+    drafts: false
+chat:
+  auto_reply: true
+base_branches:
+  - "dev"
+languagetool:
+  enabled: true
+  enabled_only: false
+  level: default
+  enabled_categories:
+    - "TON_ACADEMIC"
+    - "CASING"
