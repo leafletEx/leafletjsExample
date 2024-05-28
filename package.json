@@ -25,6 +25,7 @@
     "leaflet-hotline": "^0.4.0",
     "leaflet-image": "^0.4.0",
     "leaflet-ruler": "^1.0.0",
+    "leaflet-trackplayer": "^2.0.2",
     "leaflet-webgl-heatmap": "^0.2.7",
     "leaflet.fullscreen": "^2.4.0",
     "leaflet.heat": "^0.2.0",

@@ -87,6 +87,10 @@ export const sidebar = {
         {
           text: '测距',
           link: '/examples/measureDistance/'
+        },
+        {
+          text: '轨迹回放',
+          link: '/examples/trackPlayer/'
         }
       ]
     }

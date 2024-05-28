@@ -3,13 +3,20 @@ import { onMounted, onUnmounted, ref } from 'vue';
 // todo 项目使用请放开 leaflet 引入
 // import L from 'leaflet';
 
+const props = defineProps({
+  center: {
+    type: Array,
+    default: [32.0237855, 118.8075675]
+  }
+})
+
 const emit = defineEmits(['mapLoad']);
 
 const mapRef = ref();
 
 const initMap = () => {
   const map = L.map(mapRef.value, {
-    center: [32.0237855, 118.8075675],
+    center: props.center,
     zoom: 11,
     minZoom: 6,
     maxZoom: 20
