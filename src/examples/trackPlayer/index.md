@@ -2,9 +2,9 @@
 import demo from './index.vue';
 </script>
 
-# leaflet-image 导出图片
+# leaflet-trackplayer 轨迹回放
 
-使用 leaflet 、Leaflet.TrackPlayer、vue 实现轨迹回放。
+使用 leaflet 、leaflet-trackplayer、vue 实现轨迹回放。
 
 支持轨迹颜色、轨迹线宽度、运动速度、已行驶轨迹部分的颜色、未行驶轨迹部分的颜色、地图视图是否跟随移动标记等配置
 
