@@ -4,14 +4,14 @@ import Theme from 'vitepress/theme';
 import './style.css';
 import './customStyle.scss';
 import Contributors from './components/Contributors.vue';
-import comment from './components/comment.vue'
+import comment from './components/comment.vue';
 
 export default {
   extends: Theme,
   Layout: () => {
     return h(Theme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      "doc-after": () => h(comment)
+      'doc-after': () => h(comment)
     });
   },
   async enhanceApp({ app }) {
@@ -37,7 +37,10 @@ export default {
       import('leaflet-ruler');
 
       // 全屏
-      import('leaflet.fullscreen/Control.FullScreen.js')
+      import('leaflet.fullscreen/Control.FullScreen.js');
+
+      // 轨迹回放插件
+      import('leaflet-trackplayer');
     }
   }
 };
