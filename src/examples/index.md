@@ -13,6 +13,10 @@ API，让开发者可以在网页上集成地图、标记点、图层、多边�
 
 [https://leafletjs.cn/index.html](https://leafletjs.cn/index.html)
 
+### 官网插件页面
+
+[https://leafletjs.cn/plugins.html](https://leafletjs.cn/plugins.html)
+
 ## 注意事项
 
 + 文件中 leaflet 相关依赖进行了注释，在项目使用中需要放开相关注释。
@@ -46,10 +50,4 @@ npm install leaflet
 ```js
 // main.js
 import "leaflet/dist/leaflet.css";
-```
-
-### 使用 ts
-
-```shell
-npm i @types/leaflet
 ```
