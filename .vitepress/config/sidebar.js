@@ -6,6 +6,10 @@ export const sidebar = {
         {
           text: '简介',
           link: '/examples/'
+        },
+        {
+          text: '使用 ts',
+          link: '/examples/useTs'
         }
       ]
     },
