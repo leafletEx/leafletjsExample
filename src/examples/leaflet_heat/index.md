@@ -16,6 +16,9 @@ import leafletHeatDemo from './leafletHeat.vue';
 
 ```shell
 pnpm install leaflet.heat
+
+# ts 项目需要安装类型文件
+pnpm install @types/leaflet.heat
 ```
 
 ## 代码实现

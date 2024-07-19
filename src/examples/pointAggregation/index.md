@@ -14,6 +14,9 @@ import demo from './index.vue'
 
 ```shell
 pnpm install leaflet.markercluster
+
+# ts 项目需要安装类型文件
+pnpm install @types/leaflet.markercluster
 ```
 
 ## 在项目中引入
