@@ -25,7 +25,7 @@ watch(
   <Giscus
     v-if="showComment"
     src="https://giscus.app/client.js"
-    repo="leafletjsExample/leafletjsExample"
+    repo="leafletEx/leafletjsExample"
     repo-id="R_kgDOKCJi9A"
     category="Q&A"
     category-id="DIC_kwDOKCJi9M4CYtW-"
