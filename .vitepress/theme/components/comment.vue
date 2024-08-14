@@ -29,7 +29,7 @@ watch(
     repo-id="R_kgDOKCJi9A"
     category="Q&A"
     category-id="DIC_kwDOKCJi9M4CYtW-"
-    mapping="url"
+    mapping="pathname"
     strict="1"
     reactions-enabled="1"
     emit-metadata="0"
