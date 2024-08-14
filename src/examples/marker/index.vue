@@ -19,7 +19,7 @@ const createMarker = () => {
   marker.value = L.marker([32.0237855, 118.8075675]).addTo(mapObj.value);
 
   // 为 marker 绑定 popup
-  marker.value.bindPopup('<b>Hello world!</b><br />这是默认marker绑定的Popup');
+  marker.value.bindPopup('<b>Hello world!</b><br />这是默认 marker 绑定的 Popup');
 
   // 打开绑定的 popup
   marker.value.openPopup();
@@ -51,15 +51,15 @@ const createMarkers = () => {
   clearMarkerLayerGroup();
   const points = [
     [32.0148855, 118.8276675],
-    [32.0138855, 118.8477675],
-    [32.0138855, 118.8678675],
+    [32.0128855, 118.8477675],
+    [32.0118855, 118.8678675],
     [32.0138855, 118.8979675]
   ];
 
   const markers = points.map((item) => {
     // 创建自定义图标
     const icon = L.icon({
-      iconUrl: 'https://leafletjs-example.vercel.app/logo.png',
+      iconUrl: 'https://leafletjs-example.netlify.app/logo.png',
       iconSize: [30, 30]
     });
 
@@ -71,7 +71,7 @@ const createMarkers = () => {
 
   // 为每个 marker 绑定 popup
   markerLayerGroup.value.bindPopup(
-    '<b>Hello world!</b><br />这是批量创建的marker'
+    '<b>你好啊!</b><br />这是批量创建的 marker'
   );
 
   // 绑定事件

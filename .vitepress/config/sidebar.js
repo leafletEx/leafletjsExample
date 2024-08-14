@@ -25,6 +25,10 @@ export const sidebar = {
           link: '/examples/marker/'
         },
         {
+          text: 'DivIcon',
+          link: '/examples/divIcon/'
+        },
+        {
           text: 'Polygon 多边形',
           link: '/examples/createPolygon/'
         },
