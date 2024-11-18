@@ -17,4 +17,15 @@
 + https://github.com/Igor-Vladyka/leaflet.motion 将简单的运动添加到你的多段线上，并在线头处设置标记。
 + https://github.com/ewoken/Leaflet.MovingMarker 允许以自定义的持续时间沿多段线移动标记。
 + https://prominentedge.com/leaflet-measure-path/ 线、面积测量
-+ 
+
+## Thanks for your support by starring this project!
+
+<p align="center">
+  <a href="https://github.com/leafletEx/leafletjsExample/stargazers">
+    <img src="https://reporoster.com/stars/dark/notext/leafletEx/leafletjsExample" alt="Stargazers repo roster for @leafletEx/leafletjsExample" />
+  </a>
+  <a href="https://github.com/leafletEx/leafletjsExample/stargazers">
+    <img src="https://api.star-history.com/svg?repos=leafletEx/leafletjsExample&type=Date" alt="Star history chart for @leafletEx/leafletjsExample"/>
+  </a>
+</p>
+
