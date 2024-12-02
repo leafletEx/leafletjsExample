@@ -43,7 +43,7 @@ const createMarkers = () => {
   points.forEach((item) => {
     // 创建自定义图标
     const icon = L.icon({
-      iconUrl: 'https://leafletjs-example.vercel.app/logo.png',
+      iconUrl: '/logo.png',
       iconSize: [30, 30]
     });
 
