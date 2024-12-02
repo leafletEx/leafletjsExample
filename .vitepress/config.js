@@ -55,6 +55,13 @@ export default defineConfig({
     search: algoliaSearch
   },
   vite: {
-    plugins: [MarkdownTransform()]
+    plugins: [MarkdownTransform()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        },
+      },
+    }
   }
 });
