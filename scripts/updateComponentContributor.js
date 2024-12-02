@@ -121,7 +121,7 @@ const getContributorsByComponents = async (components = []) => {
 
 async function getContributors() {
   if (!process.env.GITHUB_API_TOKEN) {
-    consola.info('生成贡献者需要有 GITHUB_API_TOKEN');
+    consola.error('生成贡献者需要有 GITHUB_API_TOKEN');
     return [];
   }
 

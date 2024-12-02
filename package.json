@@ -7,7 +7,6 @@
     "docs:preview": " vitepress preview",
     "predocs:build": "node ./scripts/index.js",
     "docs:build": "vitepress build",
-    "build": "pnpm run predocs:build && pnpm run docs:build",
     "commit": "git-cz"
   },
   "config": {
