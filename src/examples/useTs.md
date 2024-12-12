@@ -2,7 +2,7 @@
 
 ## leaflet 增加 ts 类型
 
-###  使用 `scrip`
+###  使用 `script`
 
 在 `index.html` 中引入 `leaflet`
 
