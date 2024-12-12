@@ -1,12 +1,6 @@
 import { ref } from 'vue';
 import gcoord from 'gcoord';
-
-/**
- * todo 项目使用请放开 leaflet 引入，这里注释是因为：
- * 直接引入 leaflet 打包会抛出 window is not undefined,因为 vitePress 打包是在node环境运行。
- * 所以在 vitePress 配置了自动加载。
- */
-// import L from 'leaflet';
+import L from 'leaflet';
 
 export const useGaoDeMap = () => {
   // 初始化高德图层设置

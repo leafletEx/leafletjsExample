@@ -10,8 +10,6 @@ const mapObj = ref();
 // todo 这里的函数看起来多此一举，这样的做原因在于打包是node环境 L 依赖 window。
 const layerObj = reactive({});
 
-// World_Imagery ,World_Shaded_Relief, World_Street_Map 世界街道地图
-
 const setLayerObj = () => {
   const layers = {
     '01': {

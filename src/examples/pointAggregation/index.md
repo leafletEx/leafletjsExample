@@ -1,5 +1,6 @@
 <script setup>
-import demo from './index.vue'
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
 # 点聚合
@@ -8,7 +9,7 @@ import demo from './index.vue'
 
 ## 示例
 
-<demo></demo>
+<ClientDemo></ClientDemo>
 
 ## 安装依赖
 

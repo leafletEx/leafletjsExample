@@ -1,7 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
-// todo 项目中使用请放开注释
-// import "@geoman-io/leaflet-geoman-free";
+import "@geoman-io/leaflet-geoman-free";
 import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 
 const InitMap = defineAsyncComponent(() =>

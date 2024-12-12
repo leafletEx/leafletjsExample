@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-// todo 项目使用请放开 leaflet 引入
-// import L from 'leaflet';
+import L from 'leaflet';
 
 const emit = defineEmits(['mapLoad']);
 

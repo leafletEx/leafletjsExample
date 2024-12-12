@@ -1,6 +1,5 @@
-// todo 项目使用请放开注释
-// import 'leaflet-webgl-heatmap';
-// import 'leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap';
+import 'leaflet-webgl-heatmap';
+import 'leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap';
 import { ref } from 'vue';
 
 export const useWebGLHeatMap = (mapObj) => {

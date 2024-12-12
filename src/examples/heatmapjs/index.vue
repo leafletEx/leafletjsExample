@@ -37,8 +37,7 @@ const initHeatmap = () => {
 };
 
 /**
- * todo 这样写只是因为是在 vitePress 中
- * todo 项目中可直接在 script 中引入，需要注意的是 leaflet 要先于插件引入
+ * todo 这样写只是因为是在 vitePress 中,项目中可直接在 script 中引入，需要注意的是 leaflet 要先于插件引入
  */
 const setHeatmapjsToHead = () => {
   const heatmapJs = document.createElement('script');

@@ -1,5 +1,6 @@
 <script setup>
-import demo from '../../components/InitMapTianditu.vue'
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('../../components/InitMapTianditu.vue'))
 </script>
 
 # 初始化地图
@@ -8,7 +9,7 @@ import demo from '../../components/InitMapTianditu.vue'
 
 ## 示例
 
-<demo></demo>
+<ClientDemo></ClientDemo>
 
 ## 代码实现
 

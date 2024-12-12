@@ -1,7 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
-// todo 项目使用请放开
-// import 'leaflet-trackplayer';
+import 'leaflet-trackplayer';
 import { list } from './trajectoryData.js';
 
 const InitMap = defineAsyncComponent(() =>

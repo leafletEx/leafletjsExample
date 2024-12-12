@@ -1,7 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
-// todo 项目使用请放开注释
-// import 'leaflet.heat';
+import 'leaflet.heat';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')

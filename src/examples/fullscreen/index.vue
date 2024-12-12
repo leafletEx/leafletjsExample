@@ -1,8 +1,7 @@
 <script setup>
 import { ref, defineAsyncComponent, computed } from 'vue';
 import 'leaflet.fullscreen/Control.FullScreen.css';
-// todo 项目使用请放开
-// import 'leaflet.fullscreen/Control.FullScreen.js';
+import 'leaflet.fullscreen/Control.FullScreen.js';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')

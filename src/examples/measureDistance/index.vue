@@ -1,8 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
 import 'leaflet-ruler/src/leaflet-ruler.css';
-// todo 项目使用请放开
-// import 'leaflet-ruler';
+import 'leaflet-ruler';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')

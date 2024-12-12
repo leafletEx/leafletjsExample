@@ -1,7 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
-// todo 项目使用请放开注释
-// import 'leaflet.markercluster';
+import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 

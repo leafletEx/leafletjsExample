@@ -1,5 +1,6 @@
 <script setup>
-import leafletHeatDemo from './leafletHeat.vue';
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
 # leaflet.heat 热力图
@@ -8,7 +9,7 @@ import leafletHeatDemo from './leafletHeat.vue';
 
 ## 示例
 
-<leafletHeatDemo></leafletHeatDemo>
+<ClientDemo></ClientDemo>
 
 ## 安装依赖
 
@@ -25,7 +26,7 @@ pnpm install @types/leaflet.heat
 
 ::: code-group
 
-<<< ./leafletHeat.vue
+<<< ./index.vue
 
 <<< @/components/InitMapTianditu.vue
 :::

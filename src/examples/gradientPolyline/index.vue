@@ -7,10 +7,7 @@ const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')
 );
 
-onMounted(() => {
-  // 注册插件 todo 项目使用无需在 onMounted 中调用，这里是为了 vitePress 打包。
-  leafletHotline(L);
-});
+leafletHotline(L);
 
 function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

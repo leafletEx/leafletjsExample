@@ -1,15 +1,17 @@
 <script setup>
-import ArcGISMap from './ArcGIS.vue';
-import OpenStreetMap from './OpenStreetMap.vue';
-import GaoDeMap from './GaoDe.vue';
-import InitMapTianditu from '../../components/InitMapTianditu.vue'
+import { defineClientComponent } from 'vitepress'
+
+const ClientTiandituMap = defineClientComponent(() => import('../../components/InitMapTianditu.vue'))
+const ClientGaoDeMap = defineClientComponent(() => import('./GaoDe.vue'))
+const ClientArcGISMap = defineClientComponent(() => import('./ArcGIS.vue'))
+const ClientOpenStreetMap = defineClientComponent(() => import('./OpenStreetMap.vue'))
 </script>
 
 # 图层
 
 ## 天地图底图
 
-<InitMapTianditu></InitMapTianditu>
+<ClientTiandituMap></ClientTiandituMap>
 
 ```js
 // 底图
@@ -43,7 +45,7 @@ L.tileLayer(
 
 ## 高德地图底图
 
-<GaoDeMap></GaoDeMap>
+<ClientGaoDeMap></ClientGaoDeMap>
 
 ```js
 // 高德地图
@@ -63,7 +65,7 @@ L.tileLayer(
 
 ## ArcGIS 底图
 
-<ArcGISMap></ArcGISMap>
+<ClientArcGISMap></ClientArcGISMap>
 
 ```js
 {
@@ -86,7 +88,7 @@ L.tileLayer(
 
 ## openstreetmap 底图
 
-<open-street-map></open-street-map>
+<ClientOpenStreetMap></ClientOpenStreetMap>
 
 ```js
 L.tileLayer(

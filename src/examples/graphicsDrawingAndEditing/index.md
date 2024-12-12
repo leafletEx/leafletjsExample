@@ -1,5 +1,6 @@
 <script setup>
-import demo from './index.vue'
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
 # leaflet-geoman 图形绘制与编辑
@@ -10,7 +11,7 @@ leaflet-geoman 是一个商业化的插件，文档很详细，同时提供免�
 
 ## 示例
 
-<demo></demo>
+<ClientDemo></ClientDemo>
 
 ## 安装依赖
 

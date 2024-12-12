@@ -1,5 +1,6 @@
 <script setup>
-import demo from './index.vue'
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
 # GeoJSON 地理JSON
@@ -11,7 +12,7 @@ import demo from './index.vue'
 
 ## 示例
 
-<demo></demo>
+<ClientDemo></ClientDemo>
 
 ## 代码实现
 
