@@ -1,5 +1,5 @@
 <script setup>
-import GeoQMap from './Geoq.vue';
+import ArcGISMap from './ArcGIS.vue';
 import OpenStreetMap from './OpenStreetMap.vue';
 import GaoDeMap from './GaoDe.vue';
 import InitMapTianditu from '../../components/InitMapTianditu.vue'
@@ -61,68 +61,28 @@ L.tileLayer(
 )
 ```
 
-## GeoQ 底图
+## ArcGIS 底图
 
-<geo-q-map></geo-q-map>
+<ArcGISMap></ArcGISMap>
 
 ```js
-  const layers = {
-    '01': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity_Mobile/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '高清中国基础地图'
-    },
-    '02': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunityENG/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '英文地图'
-    },
-    '03': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '彩色中文地图'
-    },
-    '04': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetGray/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '灰色地图'
-    },
-    '05': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '蓝黑色地图'
-    },
-    '06': {
-        layer: L.tileLayer(
-            'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{z}/{y}/{x}',
-            {
-                attribution: '&copy; 北京捷泰天域信息技术有限公司'
-            }
-        ),
-        name: '暖色地图'
-    }
-};
+{
+    layer: L.tileLayer(
+    'https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    ),
+    name: '世界影像地图'
+}
 ```
+
+原 `Geoq` 地址已经失效，暂未找到新的地址，后续有新的地址会补充进来。
+
+:::tip
+下边两个是 `ArcGIS` 底图服务的地址可以在里边找到其他的底图
+
+`https://services.arcgisonline.com/arcgis/rest/services`
+
+`https://server.arcgisonline.com/arcgis/rest/services`
+:::
 
 ## openstreetmap 底图
 
