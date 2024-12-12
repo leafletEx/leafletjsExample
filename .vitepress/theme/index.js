@@ -4,7 +4,7 @@ import Theme from 'vitepress/theme';
 import './style.css';
 import './customStyle.scss';
 import Contributors from './components/Contributors.vue';
-import comment from './components/comment.vue';
+import Comment from './components/Comment.vue';
 import CButton from './components/CButton.vue'
 
 export default {
@@ -12,7 +12,7 @@ export default {
   Layout: () => {
     return h(Theme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      'doc-after': () => h(comment)
+      'doc-after': () => h(Comment)
     });
   },
   async enhanceApp({ app }) {
