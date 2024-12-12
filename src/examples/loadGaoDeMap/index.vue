@@ -27,20 +27,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="map"></div>
+  <div id="map" style="height: 40vh;"></div>
 
-  <div class="buts">
-    <button class="c-button" @click="setGaoDeLayer('02')">电子地图</button>
-    <button class="c-button" @click="setGaoDeLayer('01')">影像地图</button>
+  <div class="mt-10">
+    <CButton @click="setGaoDeLayer('02')">电子地图</CButton>
+    <CButton @click="setGaoDeLayer('01')">影像地图</CButton>
   </div>
 </template>
 
 <style lang="scss" scoped>
-#map {
-  height: 40vh;
-}
-
-.buts {
-  margin-top: 10px;
-}
 </style>

@@ -61,9 +61,9 @@ const mapLoad = (map) => {
     @map-load="mapLoad"
   ></init-map>
 
-  <p class="c-button" @click="toggleFullscreen">
+  <CButton class="mt-10" @click="toggleFullscreen">
     {{ toggleFullscreenButName }}
-  </p>
+  </CButton>
 </template>
 
 <style scoped></style>

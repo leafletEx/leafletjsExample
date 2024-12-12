@@ -45,10 +45,10 @@ function mapLoad(map) {
     :center="[34.27519341726532, 108.911884710754]"
   ></init-map>
 
-  <ul>
-    <li class="c-button" @click="start">开始</li>
-    <li class="c-button" @click="stop">暂停</li>
-  </ul>
+  <div class="mt-10">
+    <CButton @click="start">开始</CButton>
+    <CButton @click="stop">暂停</CButton>
+  </div>
 </template>
 
 <style scoped></style>

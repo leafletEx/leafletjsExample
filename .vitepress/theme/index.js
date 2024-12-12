@@ -5,6 +5,7 @@ import './style.css';
 import './customStyle.scss';
 import Contributors from './components/Contributors.vue';
 import comment from './components/comment.vue';
+import CButton from './components/CButton.vue'
 
 export default {
   extends: Theme,
@@ -15,7 +16,9 @@ export default {
     });
   },
   async enhanceApp({ app }) {
+    // 注册全局组件
     app.component('Contributors', Contributors);
+    app.component('CButton', CButton);
 
     if (typeof window !== 'undefined') {
       await import('leaflet');

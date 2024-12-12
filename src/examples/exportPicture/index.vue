@@ -44,7 +44,8 @@ const mapLoad = (map) => {
 
 <template>
   <init-map @map-load="mapLoad"></init-map>
-  <p class="c-button" @click="exportPicture">导出图片</p>
+
+  <CButton class="mt-10" @click="exportPicture">导出图片</CButton>
 </template>
 
 <style scoped></style>

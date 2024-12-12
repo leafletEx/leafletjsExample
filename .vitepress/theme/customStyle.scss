@@ -1,18 +1,7 @@
 /**
  * custom style
  * -------------------------------------------------------------------------- */
-
-.c-button {
-  display: inline-block;
-  padding: 4px;
-  margin-right: 10px;
-  border-radius: 4px;
-  color: #ffffff;
-  background: #9499ff;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
+.mt-10 {
+  margin-top: 10px;
 }
 

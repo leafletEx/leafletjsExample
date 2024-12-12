@@ -94,7 +94,7 @@ const mapLoad = (map) => {
 <template>
   <init-map @map-load="mapLoad"></init-map>
 
-  <p class="c-button" @click="clearMarkerLayerGroup">清除 marker</p>
+  <CButton class="mt-10" @click="clearMarkerLayerGroup">清除 marker</CButton>
 </template>
 
 <style scoped></style>

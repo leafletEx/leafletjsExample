@@ -115,11 +115,12 @@ const clearAllDrawGraphics = () => {
 
 <template>
   <init-map style="height: 50vh" @map-load="mapLoad"></init-map>
-  <ul>
-    <li class="c-button" @click="drawGraphics">绘制图形</li>
-    <li class="c-button" @click="clearDrawGraphics">清除图形</li>
-    <li class="c-button" @click="clearAllDrawGraphics">清除所有</li>
-  </ul>
+  
+  <div class="mt-10">
+    <CButton @click="drawGraphics">绘制图形</CButton>
+    <CButton @click="clearDrawGraphics">清除图形</CButton>
+    <CButton @click="clearAllDrawGraphics">清除所有</CButton>
+  </div>
 </template>
 
 <style scoped></style>

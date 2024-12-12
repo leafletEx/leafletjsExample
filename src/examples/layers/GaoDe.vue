@@ -56,16 +56,16 @@ const mapLoad = (map) => {
 
 <template>
   <init-map @mapLoad="mapLoad"></init-map>
-  <ul>
-    <li
-      class="c-button"
+
+  <div class="mt-10">
+    <CButton
       v-for="item in Object.keys(layerObj)"
       :key="item"
       @click="setLayer(item)"
     >
       {{ layerObj[item].name }}
-    </li>
-  </ul>
+    </CButton>
+  </div>
 </template>
 
 <style scoped></style>
