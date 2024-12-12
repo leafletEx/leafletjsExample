@@ -1,5 +1,6 @@
 <script setup>
-import demo from './index.vue'
+import { defineClientComponent } from 'vitepress'
+const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
 # leaflet-image 导出图片
@@ -12,7 +13,7 @@ import demo from './index.vue'
 导出需要一些时间请稍后，正常会有一个 loading 来处理 :tea:。
 :::
 
-<demo></demo>
+<ClientDemo></ClientDemo>
 
 ## 安装依赖
 
