@@ -1,5 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
+import 'leaflet'
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')

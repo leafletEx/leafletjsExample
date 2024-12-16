@@ -1,5 +1,6 @@
 <script setup>
 import { defineAsyncComponent, onMounted } from 'vue';
+import 'leaflet'
 import leafletHotline from 'leaflet-hotline';
 import geoJson from '../../public/geojson/gulou.json';
 

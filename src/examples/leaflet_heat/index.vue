@@ -1,5 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue';
+import 'leaflet'
 import 'leaflet.heat';
 
 const InitMap = defineAsyncComponent(() =>

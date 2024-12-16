@@ -1,5 +1,6 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
+import 'leaflet'
 import 'leaflet-ruler/src/leaflet-ruler.css';
 import 'leaflet-ruler';
 
