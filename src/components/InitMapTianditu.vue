@@ -17,8 +17,8 @@ const initMap = () => {
   const map = L.map(mapRef.value, {
     center: props.center,
     zoom: 11,
-    minZoom: 6,
-    maxZoom: 20
+    minZoom: 1,
+    maxZoom: 18
   });
 
   const mapType = 'vec';
