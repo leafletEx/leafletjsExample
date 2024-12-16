@@ -57,6 +57,10 @@ export const sidebar = {
         {
           text: '全屏',
           link: '/examples/fullscreen/'
+        },
+        {
+          text: '定位',
+          link: '/examples/leaflet-locatecontrol/'
         }
       ]
     },
