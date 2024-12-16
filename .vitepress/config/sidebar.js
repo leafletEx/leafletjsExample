@@ -73,7 +73,7 @@ export const sidebar = {
         },
         {
           text: 'leaflet.heat 热力图',
-          link: '/examples/leaflet_heat/'
+          link: '/examples/leaflet-heat/'
         },
         { text: 'heatmapjs 热力图', link: '/examples/heatmapjs/' },
         {
