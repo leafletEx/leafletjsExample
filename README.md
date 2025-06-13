@@ -18,14 +18,23 @@
 + https://github.com/ewoken/Leaflet.MovingMarker 允许以自定义的持续时间沿多段线移动标记。
 + https://prominentedge.com/leaflet-measure-path/ 线、面积测量
 
-## Thanks for your support by starring this project!
+# 贡献者
 
-<p align="center">
-  <a href="https://github.com/leafletEx/leafletjsExample/stargazers">
-    <img src="https://reporoster.com/stars/dark/notext/leafletEx/leafletjsExample" alt="Stargazers repo roster for @leafletEx/leafletjsExample" />
-  </a>
-  <a href="https://github.com/leafletEx/leafletjsExample/stargazers">
-    <img src="https://api.star-history.com/svg?repos=leafletEx/leafletjsExample&type=Date" alt="Star history chart for @leafletEx/leafletjsExample"/>
-  </a>
-</p>
+感谢对本项目的贡献！
+
+<a href="https://www.openomy.com/github/leafletEx/leafletjsExample" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://www.openomy.com/svg?repo=leafletEx/leafletjsExample&chart=bubble&latestMonth=99" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
+
+<a href="https://www.openomy.com/github/leafletEx/leafletjsExample" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://www.openomy.com/svg?repo=leafletEx/leafletjsExample&chart=list" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
+
+# Star history chart
+
+感谢您对本项目的支持！
+
+<a href="https://github.com/leafletEx/leafletjsExample/stargazers" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://api.star-history.com/svg?repos=leafletEx/leafletjsExample&type=Date" target="_blank" alt="Star history chart for @leafletEx/leafletjsExample" style="display: block; width: 100%;" />
+</a>
 
