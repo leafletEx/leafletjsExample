@@ -9,7 +9,7 @@ import { __dirname, errorAndExit } from './utils.js';
 
 const REPO_BRANCH = 'dev';
 const REPO_NAME = 'leafletjsExample';
-const REPO_OWNER = 'leafletjsExample';
+const REPO_OWNER = 'leafletEx';
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_API_TOKEN,
