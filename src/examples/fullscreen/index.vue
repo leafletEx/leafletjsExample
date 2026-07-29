@@ -1,7 +1,7 @@
 <script setup>
 import { ref, defineAsyncComponent, computed } from 'vue';
-import 'leaflet.fullscreen/Control.FullScreen.css';
-import 'leaflet.fullscreen/Control.FullScreen.js';
+import { FullScreen } from 'leaflet.fullscreen';
+import 'leaflet.fullscreen/dist/Control.FullScreen.css';
 
 const InitMap = defineAsyncComponent(() =>
   import('../../components/InitMapTianditu.vue')
@@ -11,8 +11,8 @@ const InitMap = defineAsyncComponent(() =>
 const fullScreenState = ref(false);
 
 const initFullscreenControl = (map) => {
-  L.control
-    .fullscreen({
+  map.addControl(
+    new FullScreen({
       position: 'topleft', // 按钮的位置 topleft, topright, bottomright or bottomleft, 默认 topleft
       title: '全屏显示', // 更改按钮的标题
       titleCancel: '退出全屏', // 全屏打开时更改按钮的标题
@@ -21,7 +21,7 @@ const initFullscreenControl = (map) => {
       forcePseudoFullscreen: true, // 即使全屏 API 可用，也强制使用伪全屏，默认 false
       fullscreenElement: false // 进入全屏的 dom 元素，默认 false 使用 map._container
     })
-    .addTo(map);
+  );
 
   // 进入全屏的事件
   map.on('enterFullscreen', function () {
