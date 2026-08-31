@@ -1,16 +1,17 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, ref, shallowRef } from 'vue';
+import { Circle, Marker, Polygon } from 'leaflet';
 import {
   booleanPointInPolygon,
   point as turfPoint,
   polygon as turfPolygon
 } from '@turf/turf';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 // 创建多边形
 const polygonData = [
@@ -32,9 +33,9 @@ const polygonData = [
   }
 ];
 
-const polygonOverlay = ref();
+const polygonOverlay = shallowRef();
 const createPolygon = () => {
-  polygonOverlay.value = L.polygon(polygonData, { color: 'red' }).addTo(
+  polygonOverlay.value = new Polygon(polygonData, { color: 'red' }).addTo(
     mapObj.value
   );
 };
@@ -69,7 +70,7 @@ const createCircle = () => {
 
   const radius = 3740;
 
-  L.circle([point.lat, point.lng], {
+  new Circle([point.lat, point.lng], {
     radius
   }).addTo(mapObj.value);
 
@@ -77,14 +78,14 @@ const createCircle = () => {
 };
 
 // 创建信息 marker
-const infoMarker = ref();
+const infoMarker = shallowRef();
 const createMarker = (point, text) => {
   if (infoMarker.value) {
     mapObj.value.removeLayer(infoMarker.value);
     infoMarker.value = null;
   }
 
-  infoMarker.value = L.marker([point.lat, point.lng], {}).addTo(mapObj.value);
+  infoMarker.value = new Marker([point.lat, point.lng]).addTo(mapObj.value);
 
   infoMarker.value.bindPopup(`<p>${text}<p>`).openPopup();
 };

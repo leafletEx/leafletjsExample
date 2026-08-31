@@ -1,34 +1,26 @@
 # 贡献者指南
 
-很高兴你有兴趣为 leafletjsExample 做出贡献。在提交你的贡献之前，请花点时间阅读以下指南：
+很高兴你有兴趣为 leafletjsExample 做出贡献。在提交贡献前，请阅读以下说明。
 
 ## 参与开发
 
-1. 点击 GitHub 右上角的 Fork 按钮，将仓库 Fork 仓库到个人空间
-2. Clone 个人空间项目到本地：`git clone git@github.com:leafletjsExample/leafletjsExample.git`
-3. 在项目的根目录下运行pnpm i, 安装 node 依赖
-4. 运行 pnpm dev，启动网站
-5. 使用浏览器访问：http://localhost:5173/
+1. Fork 仓库并克隆到本地。
+2. 在项目根目录运行 `pnpm install` 安装依赖。
+3. 运行 `pnpm docs:dev` 启动文档站点。
+4. 使用浏览器访问终端显示的本地地址。
 
 ```shell
-# username 为用户名，执行前请替换
 git clone git@github.com:username/leafletjsExample.git
 cd leafletjsExample
 git remote add upstream git@github.com:leafletjsExample/leafletjsExample.git
-pnpm i
-pnpm dev
+pnpm install
+pnpm docs:dev
 ```
 
-## 注意事项
+## Leaflet 2 约定
 
-+ leafletjs 中使用了 window，vite 打包时是 node 环境并没有 window 对象所以会报错，解决办法是在 `.vitepress/theme/index.js`
-中动态引入leafletjs及其插件。
-+ node 版本需要 18.x 因为使用了内置的 fetch
-+ 请给 commit 签名参考: https://insights.thoughtworks.cn/how-to-sign-git-commit/
-
-
-
-
-
-
-
+- 使用 ESM 具名导入和类构造器，不使用全局 `L`。
+- Leaflet 样式统一由 `.vitepress/theme/index.js` 引入。
+- 插件必须明确支持 Leaflet 2；依赖 `window.L` 或修改 `L.*` 的 1.x 插件不能直接接入。
+- 浏览器专用示例通过 VitePress 的 `defineClientComponent` 加载，避免在 SSR 阶段访问 DOM。
+- Node.js 版本要求以仓库的 `package.json` 为准。

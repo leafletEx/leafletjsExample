@@ -1,10 +1,9 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import 'leaflet'
-import 'leaflet.heat';
+import { defineAsyncComponent, shallowRef } from 'vue';
+import { SimpleHeatLayer } from '../../integrations/leaflet/SimpleHeatLayer.js';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
 // 数组 第三个参数表示强度，对象 max 表示强度
@@ -28,11 +27,11 @@ const config = {
   gradient: { 0.4: 'blue', 0.65: 'lime', 1: 'red' }
 };
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 const mapLoad = (map) => {
   mapObj.value = map;
-  L.heatLayer(points, config).addTo(map);
+  new SimpleHeatLayer(points, config).addTo(map);
 };
 </script>
 

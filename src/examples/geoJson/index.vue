@@ -1,16 +1,17 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, shallowRef } from 'vue';
+import { GeoJSON } from 'leaflet';
 import { geoJsonLine, geoJsonPoint, geoJsonPolygon } from './useGeoJsonData.js';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 // 添加 geoJson 数据到地图
 const addGeoJsonDataToMap = (data) => {
-  L.geoJSON(data, {
+  new GeoJSON(data, {
     style: function (feature) {
       return { color: feature.properties.color ?? 'green' };
     }

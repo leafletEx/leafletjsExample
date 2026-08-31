@@ -1,8 +1,9 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
+import { Polygon } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
 // 矩形
@@ -63,8 +64,8 @@ const polygonData = [
 
 const mapLoad = (map) => {
   // 配置参考 https://leafletjs.cn/reference.html#polygon
-  L.polygon(rectData, { color: 'red', fillColor: 'green' }).addTo(map);
-  L.polygon(polygonData, { color: 'red' }).addTo(map);
+  new Polygon(rectData, { color: 'red', fillColor: 'green' }).addTo(map);
+  new Polygon(polygonData, { color: 'red' }).addTo(map);
 };
 </script>
 

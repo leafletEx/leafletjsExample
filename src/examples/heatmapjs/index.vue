@@ -1,10 +1,11 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, shallowRef } from 'vue';
+import { LatLng } from 'leaflet';
 import { testData } from './testData.js';
-import 'leaflet'
+import { HeatmapJsLayer } from '../../integrations/leaflet/HeatmapJsLayer.js';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
 const cfg = {
@@ -26,38 +27,19 @@ const cfg = {
   valueField: 'count'
 };
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
+/** 使用 ESM 适配层创建 heatmap.js 图层。 */
 const initHeatmap = () => {
-  mapObj.value.setView(new L.LatLng(25.6586, -80.3768), 4);
-
-  const heatmapLayer = new HeatmapOverlay(cfg);
-
-  mapObj.value.addLayer(heatmapLayer);
+  mapObj.value.setView(new LatLng(25.6586, -80.3768), 4);
+  const heatmapLayer = new HeatmapJsLayer(cfg).addTo(mapObj.value);
   heatmapLayer.setData(testData);
-};
-
-/**
- * todo 这样写只是因为是在 vitePress 中,项目中可直接在 script 中引入，需要注意的是 leaflet 要先于插件引入
- */
-const setHeatmapjsToHead = () => {
-  const heatmapJs = document.createElement('script');
-  heatmapJs.src = '/heatmapjs/heatmap.js';
-  document.head.appendChild(heatmapJs);
-
-  const leafletHeatmapJs = document.createElement('script');
-  leafletHeatmapJs.src = '/heatmapjs/leaflet-heatmap.js';
-  document.head.appendChild(leafletHeatmapJs);
-
-  setTimeout(() => {
-    initHeatmap();
-  }, 1000);
 };
 
 const mapLoad = (map) => {
   mapObj.value = map;
 
-  setHeatmapjsToHead();
+  initHeatmap();
 };
 </script>
 

@@ -1,9 +1,8 @@
-import 'leaflet-webgl-heatmap';
-import 'leaflet-webgl-heatmap/src/webgl-heatmap/webgl-heatmap';
-import { ref } from 'vue';
+import { shallowRef } from 'vue';
+import { WebGLHeatLayer } from '../../integrations/leaflet/WebGLHeatLayer.js';
 
 export const useWebGLHeatMap = (mapObj) => {
-  const heatmapLayer = ref();
+  const heatmapLayer = shallowRef();
   const clearHeatmapLayer = () => {
     if (heatmapLayer.value) {
       mapObj.value.removeLayer(heatmapLayer.value);
@@ -13,11 +12,6 @@ export const useWebGLHeatMap = (mapObj) => {
 
   const initWebGLHeatmap = () => {
     clearHeatmapLayer();
-    const heatmap = new L.webGLHeatmap({
-      size: 1000,
-      units: 'm',
-      alphaRange: 1 // 热力图透明度
-    });
     const points = [
       [32.020274, 118.803319, 2],
       [32.020274, 118.803319, 1],
@@ -29,11 +23,9 @@ export const useWebGLHeatMap = (mapObj) => {
       [32.013869, 118.803834]
     ];
 
-    // 设置数据
-    heatmap.setData(points);
-
-    // 将图层加载到地图
-    mapObj.value.addLayer(heatmap);
+    // 原生 WebGL 适配层直接消费经纬度和强度数据。
+    heatmapLayer.value = new WebGLHeatLayer(points, { size: 100 });
+    mapObj.value.addLayer(heatmapLayer.value);
   };
 
   return {

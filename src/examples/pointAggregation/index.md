@@ -5,34 +5,22 @@ const ClientDemo = defineClientComponent(() => import('./index.vue'))
 
 # 点聚合
 
-使用 `Leaflet.markercluster` 插件实现，[仓库地址](https://github.com/Leaflet/Leaflet.markercluster)。
+原 `Leaflet.markercluster` 尚未声明支持 Leaflet 2。本示例使用与 Leaflet 无耦合的 `supercluster` 计算聚合结果，再通过 Leaflet 2 的 `Marker` 和 `LayerGroup` 渲染。
 
 ## 示例
 
-<ClientDemo></ClientDemo>
+<ClientDemo />
 
 ## 安装依赖
 
 ```shell
-pnpm install leaflet.markercluster
-
-# ts 项目需要安装类型文件
-pnpm install @types/leaflet.markercluster
-```
-
-## 在项目中引入
-
-```js
-import "leaflet.markercluster";
-import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-import "leaflet.markercluster/dist/MarkerCluster.css";
+pnpm add supercluster
 ```
 
 ## 代码实现
 
 ::: code-group
-
 <<< ./index.vue
-
+<<< @/integrations/leaflet/SuperclusterLayer.js
 <<< @/components/InitMapTianditu.vue
 :::

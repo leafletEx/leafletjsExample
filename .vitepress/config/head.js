@@ -33,15 +33,6 @@ export const head = [
       gtag('js', new Date());
       gtag('config', 'G-C38FF8YHL3');`
   ],
-  // leaflet
-  [
-    'link',
-    {
-      rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css'
-    }
-  ],
-
   // 字体
   ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
   [

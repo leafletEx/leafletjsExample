@@ -1,14 +1,16 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, shallowRef } from 'vue';
+import { TileLayer } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMap.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMap.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
+/** 创建并挂载 OpenStreetMap 图层。 */
 const setLayer = () => {
-  const layer = L.tileLayer(
+  const layer = new TileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
       maxZoom: 18,

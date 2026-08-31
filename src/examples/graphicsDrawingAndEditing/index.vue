@@ -1,126 +1,97 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import 'leaflet'
-import "@geoman-io/leaflet-geoman-free";
-import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
+import { defineAsyncComponent, onUnmounted, shallowRef } from 'vue';
+import { DivIcon, LayerGroup, Marker, Polygon, Polyline } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
+const drawingLayers = shallowRef();
+const shapeLayer = shallowRef();
+const vertexMarkers = [];
 
-const addControls = () => {
-  mapObj.value.pm.addControls({
-    position: 'topright',
-    drawCircleMarker: false,
-    rotateMode: false
+/** 根据当前顶点创建折线或多边形，拖动顶点时同步更新图形。 */
+const updateShape = () => {
+  const latLngs = vertexMarkers.map((marker) => marker.getLatLng());
+  shapeLayer.value?.remove();
+  shapeLayer.value = null;
+
+  if (latLngs.length < 2) return;
+  shapeLayer.value =
+    latLngs.length >= 3
+      ? new Polygon(latLngs, {
+          color: 'orange',
+          fillColor: 'green',
+          fillOpacity: 0.4
+        })
+      : new Polyline(latLngs, { color: 'orange', weight: 3 });
+  drawingLayers.value.addLayer(shapeLayer.value);
+};
+
+/** 在地图点击位置添加可拖动的编辑顶点。 */
+const addVertex = (event) => {
+  const marker = new Marker(event.latlng, {
+    draggable: true,
+    icon: new DivIcon({ className: 'draw-vertex', iconSize: [14, 14] })
   });
+  marker.on('drag', updateShape);
+  vertexMarkers.push(marker);
+  drawingLayers.value.addLayer(marker);
+  updateShape();
 };
 
-// 自定义绘制样式
-const customDrawingStyle = () => {
-  mapObj.value.pm.setPathOptions(
-    {
-      color: 'orange', // 线的颜色
-      fillColor: 'green', // 填充的颜色
-      fillOpacity: 0.4 // 填充的透明度
-    },
-    {
-      ignoreShapes: ['Circle'] // 忽略某些图形的更改
-    }
-  );
+/** 完成当前绘制并恢复地图默认交互。 */
+const finishDrawing = () => {
+  if (!mapObj.value) return;
+  mapObj.value.off('click', addVertex);
+  mapObj.value.off('dblclick', finishDrawing);
+  mapObj.value.doubleClickZoom.enable();
+  mapObj.value.getContainer().style.cursor = '';
 };
 
-// 绘制完成事件
-const pmCreate = (event) => {
-  const layer = event.layer;
-  const shapeType = layer.pm.getShape(); // 获取绘制图形的类型
-
-  let coordinates = [];
-
-  // 根据绘制图形的类型获取坐标集合
-  switch (shapeType) {
-    case 'Polygon':
-      coordinates = layer.getLatLngs()[0];
-      break;
-    case 'Rectangle':
-      coordinates = layer.getLatLngs()[0];
-      break;
-    case 'Circle':
-      const center = layer.getLatLng();
-      const radius = layer.getRadius();
-      console.log('圆形', center, radius);
-      // 这里可以根据需要将圆形转换为多边形，以便获得更多点的坐标
-      // coordinates = convertCircleToPolygon(center, radius, numPoints);
-      break;
-    default:
-      break;
-  }
-
-  console.log('绘制图形点位', coordinates);
+/** 清空旧图形并进入点击添加顶点的绘制模式。 */
+const drawGraphics = () => {
+  clearAllDrawGraphics();
+  mapObj.value.doubleClickZoom.disable();
+  mapObj.value.getContainer().style.cursor = 'crosshair';
+  mapObj.value.on('click', addVertex);
+  mapObj.value.on('dblclick', finishDrawing);
 };
 
-// 图形删除事件
-const pmRemove = (e) => {
-  // 关闭全局删除模式
-  mapObj.value.pm.disableGlobalRemovalMode();
+/** 清除图形和编辑顶点。 */
+const clearAllDrawGraphics = () => {
+  finishDrawing();
+  drawingLayers.value?.clearLayers();
+  vertexMarkers.splice(0);
+  shapeLayer.value = null;
 };
 
+/** 保存地图实例并创建专用绘制图层组。 */
 const mapLoad = (map) => {
   mapObj.value = map;
-
-  // 设置语言为中文
-  mapObj.value.pm.setLang('zh');
-
-  addControls();
-  customDrawingStyle();
-
-  // 监听绘制完成事件
-  mapObj.value.on('pm:create', pmCreate);
-
-  // 监听图形删除事件
-  mapObj.value?.on('pm:remove', pmRemove);
+  drawingLayers.value = new LayerGroup().addTo(map);
 };
 
-/**
- * 手动调用 api 实现绘制、删除
- * https://geoman.io/docs/modes/draw-mode
- */
-
-// 手动绘制多边形
-const drawGraphics = () => {
-  // 启用绘制模式
-  mapObj.value.pm.enableDraw('Polygon', {
-    snappable: true,
-    snapDistance: 20
-  });
-};
-
-// 手动清除绘制图形
-const clearDrawGraphics = () => {
-  // 开启全局删除模式
-  mapObj.value.pm.enableGlobalRemovalMode();
-};
-
-// 清除所有绘制图层
-const clearAllDrawGraphics = () => {
-  mapObj.value.pm.disableGlobalRemovalMode();
-  const allLayers = mapObj.value.pm.getGeomanDrawLayers();
-  allLayers.forEach((layer) => {
-    mapObj.value.removeLayer(layer);
-  });
-};
+onUnmounted(finishDrawing);
 </script>
 
 <template>
   <init-map style="height: 50vh" @map-load="mapLoad"></init-map>
-  
+
   <div class="mt-10">
     <CButton @click="drawGraphics">绘制图形</CButton>
-    <CButton @click="clearDrawGraphics">清除图形</CButton>
+    <CButton @click="finishDrawing">完成绘制</CButton>
     <CButton @click="clearAllDrawGraphics">清除所有</CButton>
   </div>
 </template>
 
-<style scoped></style>
+<style>
+.draw-vertex {
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #f97316;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 35%);
+}
+</style>

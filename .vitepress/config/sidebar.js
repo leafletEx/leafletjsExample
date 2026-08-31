@@ -65,14 +65,14 @@ export const sidebar = {
       ]
     },
     {
-      text: '插件',
+      text: '集成示例',
       items: [
         {
           text: 'webGL 热力图',
           link: '/examples/webGLHeatMap/'
         },
         {
-          text: 'leaflet.heat 热力图',
+          text: 'Canvas 热力图',
           link: '/examples/leaflet-heat/'
         },
         { text: 'heatmapjs 热力图', link: '/examples/heatmapjs/' },

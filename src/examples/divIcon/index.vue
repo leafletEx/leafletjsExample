@@ -1,14 +1,15 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, shallowRef } from 'vue';
+import { DivIcon, Marker } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 // 单个 marker 创建
-const marker = ref();
+const marker = shallowRef();
 const createMarker = () => {
   if (marker.value) {
     mapObj.value.removeLayer(marker.value);
@@ -16,19 +17,22 @@ const createMarker = () => {
   }
 
   // 创建一个 marker
-  const customIcon = L.divIcon({
+  const customIcon = new DivIcon({
     className: 'custom-marker-style',
     html: `<div class="name">自定义 Icon</div><div class="icon"></div>`,
     iconSize: [141, 102.6]
   });
 
-  marker.value = L.marker([32.0237855, 118.8075675], {
+  marker.value = new Marker([32.0237855, 118.8075675], {
     riseOnHover: true,
     icon: customIcon
   }).addTo(mapObj.value);
 
   // 为 marker 绑定 popup
-  marker.value.bindPopup('<b>Hello world!</b><br />这是默认 marker 绑定的 Popup', {offset: [0, -40]});
+  marker.value.bindPopup(
+    '<b>Hello world!</b><br />这是默认 marker 绑定的 Popup',
+    { offset: [0, -40] }
+  );
 
   // 为 marker 绑定点击事件
   marker.value.on('click', (e) => {
@@ -57,19 +61,19 @@ const mapLoad = (map) => {
   .name {
     width: 141px;
     height: 52.5px;
-    line-height:40px;
+    line-height: 40px;
     font-size: 18px;
     font-weight: 500;
     color: #fff;
     text-align: center;
-    background: url('../../public/markerCustom/top-bg.png') no-repeat center;
+    background: url('/markerCustom/top-bg.png') no-repeat center;
     background-size: 100% 100%;
   }
 
   .icon {
     width: 38px;
     height: 49.13px;
-    background: url('../../public/markerCustom/icon.png') no-repeat center;
+    background: url('/markerCustom/icon.png') no-repeat center;
     background-size: 100% 100%;
   }
 }

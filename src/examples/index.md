@@ -1,46 +1,34 @@
 # 简介
 
-一些 Leaflet 与 vue 结合使用的示例。
+本项目提供 Leaflet 2 与 Vue 3 的集成示例，覆盖底图、矢量图形、热力图、点聚合、绘制、测距、轨迹播放和图片导出等常见场景。
 
-## Leaflet 简介
+## 当前版本
 
-Leaflet.js 是一个开源的 JavaScript 库，用于创建交互式地图和地理信息应用程序。它提供了一个简单、轻量级且易于使用的
-API，让开发者可以在网页上集成地图、标记点、图层、多边形、折线等地理信息要素，并实现与地图相关的交互和操作。
+- Vue 3
+- Leaflet 2.0.0-alpha.1
 
-类似的还有 OpenLayers 它与 Leaflet.js 有些相似，都是用于地图展示和地理信息处理的前端库。
-
-### 中文官网
-
-[https://leafletjs.cn/index.html](https://leafletjs.cn/index.html)
-
-### 官网插件页面
-
-[https://leafletjs.cn/plugins.html](https://leafletjs.cn/plugins.html)
-
-## 版本
-
-+ vue 3.3.4
-+ leaflet 1.9.4
-
-## 安装 leaflet
-
-### 使用cdn
+Leaflet 2 已改为 ESM，并移除了全局 `L` 命名空间。示例统一使用具名导入和构造器：
 
 ```js
-// jsdelivr
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+import { LeafletMap, Marker, TileLayer } from 'leaflet';
+
+const map = new LeafletMap('map', { center: [32, 118], zoom: 10 });
+new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+new Marker([32, 118]).addTo(map);
 ```
 
-### 使用 npm
+## 安装
 
 ```shell
-npm install leaflet
+pnpm add leaflet@2.0.0-alpha.1
 ```
 
-+ 使用 npm 一般需要在 main.js 中引入 css 样式文件, **如果没有引入则会导致瓦片加载不完全等样式问题**。
+在应用入口引入 Leaflet 样式，否则地图控件和瓦片布局会异常：
 
 ```js
-// main.js
-import "leaflet/dist/leaflet.css";
+import 'leaflet/dist/leaflet.css';
 ```
+
+::: warning 预览版说明
+Leaflet 2 仍处于 alpha 阶段。1.x 插件如果依赖 `window.L`、修改 `L.*` 命名空间或只声明支持 Leaflet 1.x，不能直接用于本项目。
+:::

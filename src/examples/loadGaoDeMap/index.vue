@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, shallowRef } from 'vue';
 import { useGaoDeMap } from '../../composables/useGaoDeMap';
 
-const mapObj = ref();
+// Leaflet 实例由库自身管理状态，避免 Vue 对其内部对象做深层代理。
+const mapObj = shallowRef();
 
 const { initMap, setGaoDeLayer } = useGaoDeMap();
 
@@ -27,7 +28,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="map" style="height: 40vh;"></div>
+  <div id="map" style="height: 40vh"></div>
 
   <div class="mt-10">
     <CButton @click="setGaoDeLayer('02')">电子地图</CButton>
@@ -35,5 +36,4 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

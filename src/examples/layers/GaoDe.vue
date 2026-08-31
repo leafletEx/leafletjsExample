@@ -1,18 +1,20 @@
 <script setup>
-import { ref, defineAsyncComponent, reactive } from 'vue';
+import { defineAsyncComponent, shallowReactive, shallowRef } from 'vue';
+import { TileLayer } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMap.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMap.vue')
 );
 
-const mapObj = ref();
+// Leaflet 地图和图层保留原始实例，避免 Vue 深层代理干扰内部状态。
+const mapObj = shallowRef();
 
-// todo 这里的函数看起来多此一举，这样的做原因在于打包是node环境 L 依赖 window。
-const layerObj = reactive({});
+const layerObj = shallowReactive({});
+/** 使用 Leaflet 2 构造器创建高德图层配置。 */
 const setLayerObj = () => {
   const layers = {
     '01': {
-      layer: L.tileLayer(
+      layer: new TileLayer(
         'http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
         {
           subdomains: '1234',
@@ -22,7 +24,7 @@ const setLayerObj = () => {
       name: '高德电子地图'
     },
     '02': {
-      layer: L.tileLayer(
+      layer: new TileLayer(
         'http://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}',
         {
           subdomains: '1234',
@@ -36,7 +38,7 @@ const setLayerObj = () => {
   Object.assign(layerObj, layers);
 };
 
-const curLayer = ref();
+const curLayer = shallowRef();
 const setLayer = (type) => {
   if (curLayer.value) {
     mapObj.value.removeLayer(curLayer.value);

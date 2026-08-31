@@ -1,20 +1,22 @@
 <script setup>
-import { ref, defineAsyncComponent, reactive } from 'vue';
+import { defineAsyncComponent, shallowReactive, shallowRef } from 'vue';
+import { TileLayer } from 'leaflet';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMap.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMap.vue')
 );
 
-const mapObj = ref();
+// Leaflet 地图和图层保留原始实例，避免 Vue 深层代理干扰内部状态。
+const mapObj = shallowRef();
 
-// todo 这里的函数看起来多此一举，这样的做原因在于打包是node环境 L 依赖 window。
-const layerObj = reactive({});
+const layerObj = shallowReactive({});
 
+/** 使用 Leaflet 2 构造器创建 ArcGIS 图层配置。 */
 const setLayerObj = () => {
   const layers = {
     '01': {
-      layer: L.tileLayer(
-        'https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      layer: new TileLayer(
+        'https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
       ),
       name: '世界影像地图'
     }
@@ -23,7 +25,7 @@ const setLayerObj = () => {
   Object.assign(layerObj, layers);
 };
 
-const curLayer = ref();
+const curLayer = shallowRef();
 const setLayer = (type) => {
   if (curLayer.value) {
     mapObj.value.removeLayer(curLayer.value);
@@ -42,7 +44,6 @@ const mapLoad = (map) => {
 </script>
 
 <template>
-
   <p>底图服务好像无法访问了，不知后续是否会恢复！</p>
 
   <init-map @mapLoad="mapLoad"></init-map>

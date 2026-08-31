@@ -1,42 +1,35 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import leafletImage from 'leaflet-image';
+import { defineAsyncComponent, ref, shallowRef } from 'vue';
+import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-/**
- * base64转图片
- * @param url
- * @param filename
- * @param mimeType
- * @return File
- */
-const base64ToFile = (url, filename, mimeType) => {
-  return fetch(url)
-    .then(function (res) {
-      return res.arrayBuffer();
-    })
-    .then(function (buf) {
-      return new File([buf], filename, { type: mimeType });
+const mapObj = shallowRef();
+const exportMessage = ref('');
+
+/** 将当前 Leaflet 地图容器渲染为 PNG 并触发下载。 */
+const exportPicture = async () => {
+  exportMessage.value = '正在生成图片…';
+
+  try {
+    const imageUrl = await toPng(mapObj.value.getContainer(), {
+      cacheBust: true,
+      pixelRatio: 1,
+      // VitePress 的远程字体样式表受跨域限制；地图截图无需重新内嵌字体。
+      skipFonts: true
     });
+    saveAs(imageUrl, '地图图片导出.png');
+    exportMessage.value = '图片已生成并开始下载。';
+  } catch (error) {
+    exportMessage.value = `导出失败：${error.message}`;
+    console.error('地图图片导出失败', error);
+  }
 };
 
-const mapObj = ref();
-
-// 地图导出图片
-const exportPicture = () => {
-  leafletImage(mapObj.value, async (err, canvas) => {
-    console.log(err);
-    const fileBase64 = canvas.toDataURL();
-    const file = await base64ToFile(fileBase64, '地图图片导出', 'png');
-
-    saveAs(file, `地图图片导出.png`);
-  });
-};
-
+/** 保存 Leaflet 地图实例供导出操作使用。 */
 const mapLoad = (map) => {
   mapObj.value = map;
 };
@@ -46,6 +39,13 @@ const mapLoad = (map) => {
   <init-map @map-load="mapLoad"></init-map>
 
   <CButton class="mt-10" @click="exportPicture">导出图片</CButton>
+  <p v-if="exportMessage" class="export-message" role="status">
+    {{ exportMessage }}
+  </p>
 </template>
 
-<style scoped></style>
+<style scoped>
+.export-message {
+  margin-top: 12px;
+}
+</style>

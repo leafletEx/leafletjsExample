@@ -3,26 +3,18 @@ import { defineClientComponent } from 'vitepress'
 const ClientDemo = defineClientComponent(() => import('./index.vue'))
 </script>
 
-# leaflet-ruler  测距
+# 测距
 
-使用 leaflet 、leaflet-ruler 、vue 实现测距功能。
+原 `leaflet-ruler` 只声明支持 Leaflet 1.x。本示例基于 Leaflet 2 的 `Control`、`Polyline`、`Tooltip` 和地图事件实现测距，距离由地图实例的 `distance` 方法计算。
 
 ## 示例
 
-<ClientDemo></ClientDemo>
-
-## 安装依赖
-
-```shell
-pnpm i leaflet-ruler
-```
+<ClientDemo />
 
 ## 代码实现
 
 ::: code-group
-
 <<< ./index.vue
-
+<<< @/integrations/leaflet/MeasureControl.js
 <<< @/components/InitMapTianditu.vue
 :::
-

@@ -1,14 +1,14 @@
 <script setup>
-import { ref, defineAsyncComponent, computed } from 'vue';
+import { computed, defineAsyncComponent, shallowRef } from 'vue';
 import { FullScreen } from 'leaflet.fullscreen';
 import 'leaflet.fullscreen/dist/Control.FullScreen.css';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
 // 全屏状态
-const fullScreenState = ref(false);
+const fullScreenState = shallowRef(false);
 
 const initFullscreenControl = (map) => {
   map.addControl(
@@ -36,7 +36,7 @@ const initFullscreenControl = (map) => {
   });
 };
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 const toggleFullscreenButName = computed(() =>
   fullScreenState.value ? '退出全屏' : '进入全屏'

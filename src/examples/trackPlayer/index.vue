@@ -1,48 +1,56 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import 'leaflet'
-import 'leaflet-trackplayer';
+import { defineAsyncComponent, onUnmounted, shallowRef } from 'vue';
+import { Icon, Marker, Polyline } from 'leaflet';
 import { list } from './trajectoryData.js';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
-const mapObj = ref();
+const mapObj = shallowRef();
+const trackMarker = shallowRef();
+let playbackTimer;
+let currentIndex = 0;
 
-const track = ref(null);
-
+/** 从当前位置继续按固定间隔播放轨迹。 */
 function start() {
-  track.value.start();
+  if (!trackMarker.value || playbackTimer) return;
+  playbackTimer = window.setInterval(() => {
+    currentIndex = (currentIndex + 1) % list.length;
+    trackMarker.value.setLatLng(list[currentIndex]);
+  }, 120);
 }
 
+/** 暂停轨迹播放并释放计时器。 */
 function stop() {
-  track.value.pause();
+  if (!playbackTimer) return;
+  window.clearInterval(playbackTimer);
+  playbackTimer = undefined;
 }
 
+/** 创建轨迹线和沿轨迹移动的 Marker。 */
 function mapLoad(map) {
   mapObj.value = map;
-  // 地图设置到合适的缩放级别
   map.setZoom(16, { animate: false });
 
-  // 定义沿着轨迹移动的marker
-  const markerIcon = L.icon({
+  const markerIcon = new Icon({
     iconSize: [27, 54],
     iconUrl: new URL('/img/car.png', import.meta.url).href,
     iconAnchor: [13.5, 27]
   });
 
-  // 创建播放器对象并添加至地图
-  track.value = new L.TrackPlayer(list, { markerIcon }).addTo(map);
-
+  new Polyline(list, { color: '#2563eb', weight: 4 }).addTo(map);
+  trackMarker.value = new Marker(list[0], { icon: markerIcon }).addTo(map);
   start();
 }
+
+onUnmounted(stop);
 </script>
 
 <template>
   <init-map
-    @map-load="mapLoad"
     :center="[34.27519341726532, 108.911884710754]"
+    @map-load="mapLoad"
   ></init-map>
 
   <div class="mt-10">

@@ -1,14 +1,13 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue';
-import 'leaflet'
+import { defineAsyncComponent, shallowRef } from 'vue';
 
-const InitMap = defineAsyncComponent(() =>
-  import('../../components/InitMapTianditu.vue')
+const InitMap = defineAsyncComponent(
+  () => import('../../components/InitMapTianditu.vue')
 );
 
 import { useWebGLHeatMap } from './useWebGLHeatMap';
 
-const mapObj = ref();
+const mapObj = shallowRef();
 
 const { initWebGLHeatmap } = useWebGLHeatMap(mapObj);
 
